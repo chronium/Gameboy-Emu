@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gb", "gb\gb.csproj", "{94085F5B-C63D-4D35-A723-3EF933904BAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SDL3.Core", "SDL3-CS\SDL3\SDL3.Core.csproj", "{74B72435-B0C7-4F57-9D3E-BF6F1AA72F31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImGui.NET", "ImGui.NET\src\ImGui.NET\ImGui.NET.csproj", "{DDCDA8E5-E7A4-4C36-8020-5D9BB6867353}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpcodeGenerator", "OpcodeGenerator\OpcodeGenerator.csproj", "{3BD379D2-E80E-4D73-93BA-065E3554B3E2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94085F5B-C63D-4D35-A723-3EF933904BAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94085F5B-C63D-4D35-A723-3EF933904BAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94085F5B-C63D-4D35-A723-3EF933904BAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94085F5B-C63D-4D35-A723-3EF933904BAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74B72435-B0C7-4F57-9D3E-BF6F1AA72F31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74B72435-B0C7-4F57-9D3E-BF6F1AA72F31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74B72435-B0C7-4F57-9D3E-BF6F1AA72F31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74B72435-B0C7-4F57-9D3E-BF6F1AA72F31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDCDA8E5-E7A4-4C36-8020-5D9BB6867353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDCDA8E5-E7A4-4C36-8020-5D9BB6867353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDCDA8E5-E7A4-4C36-8020-5D9BB6867353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDCDA8E5-E7A4-4C36-8020-5D9BB6867353}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BD379D2-E80E-4D73-93BA-065E3554B3E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BD379D2-E80E-4D73-93BA-065E3554B3E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BD379D2-E80E-4D73-93BA-065E3554B3E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BD379D2-E80E-4D73-93BA-065E3554B3E2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

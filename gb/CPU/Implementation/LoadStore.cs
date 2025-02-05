@@ -1,0 +1,1930 @@
+// ReSharper disable once CheckNamespace
+
+namespace gb.CPU;
+
+public static partial class Executioner
+{
+    /// <summary>
+    ///     0x01 LD - 12 cycles
+    ///     <para>
+    ///         Bytes: 3<br />
+    ///         Operands: BC, n16<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_BC_n16(CpuState cpuState, IGameBoy gb)
+    {
+        var n16 = gb.ReadUShort(cpuState.PC);
+        cpuState.PC += 2;
+
+        gb.TraceCpuOp(cpuState.PC, "LD_BC_n16", n16);
+
+        throw new NotImplementedException("LD_BC_n16");
+    }
+
+    /// <summary>
+    ///     0x02 LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: [BC], A<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_iBC_A(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_iBC_A");
+
+        throw new NotImplementedException("LD_iBC_A");
+    }
+
+    /// <summary>
+    ///     0x06 LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 2<br />
+    ///         Operands: B, n8<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_B_n8(CpuState cpuState, IGameBoy gb)
+    {
+        var n8 = gb.ReadByte(cpuState.PC);
+        cpuState.PC++;
+
+        gb.TraceCpuOp(cpuState.PC, "LD_B_n8", n8);
+
+        throw new NotImplementedException("LD_B_n8");
+    }
+
+    /// <summary>
+    ///     0x08 LD - 20 cycles
+    ///     <para>
+    ///         Bytes: 3<br />
+    ///         Operands: [a16], SP<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_ia16_SP(CpuState cpuState, IGameBoy gb)
+    {
+        var a16 = gb.ReadUShort(cpuState.PC);
+        cpuState.PC += 2;
+
+        gb.TraceCpuOp(cpuState.PC, "LD_ia16_SP", a16);
+
+        throw new NotImplementedException("LD_ia16_SP");
+    }
+
+    /// <summary>
+    ///     0x0A LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: A, [BC]<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_A_iBC(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_A_iBC");
+
+        throw new NotImplementedException("LD_A_iBC");
+    }
+
+    /// <summary>
+    ///     0x0E LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 2<br />
+    ///         Operands: C, n8<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_C_n8(CpuState cpuState, IGameBoy gb)
+    {
+        var n8 = gb.ReadByte(cpuState.PC);
+        cpuState.PC++;
+
+        gb.TraceCpuOp(cpuState.PC, "LD_C_n8", n8);
+
+        throw new NotImplementedException("LD_C_n8");
+    }
+
+    /// <summary>
+    ///     0x11 LD - 12 cycles
+    ///     <para>
+    ///         Bytes: 3<br />
+    ///         Operands: DE, n16<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_DE_n16(CpuState cpuState, IGameBoy gb)
+    {
+        var n16 = gb.ReadUShort(cpuState.PC);
+        cpuState.PC += 2;
+
+        gb.TraceCpuOp(cpuState.PC, "LD_DE_n16", n16);
+
+        throw new NotImplementedException("LD_DE_n16");
+    }
+
+    /// <summary>
+    ///     0x12 LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: [DE], A<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_iDE_A(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_iDE_A");
+
+        throw new NotImplementedException("LD_iDE_A");
+    }
+
+    /// <summary>
+    ///     0x16 LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 2<br />
+    ///         Operands: D, n8<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_D_n8(CpuState cpuState, IGameBoy gb)
+    {
+        var n8 = gb.ReadByte(cpuState.PC);
+        cpuState.PC++;
+
+        gb.TraceCpuOp(cpuState.PC, "LD_D_n8", n8);
+
+        throw new NotImplementedException("LD_D_n8");
+    }
+
+    /// <summary>
+    ///     0x1A LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: A, [DE]<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_A_iDE(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_A_iDE");
+
+        throw new NotImplementedException("LD_A_iDE");
+    }
+
+    /// <summary>
+    ///     0x1E LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 2<br />
+    ///         Operands: E, n8<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_E_n8(CpuState cpuState, IGameBoy gb)
+    {
+        var n8 = gb.ReadByte(cpuState.PC);
+        cpuState.PC++;
+
+        gb.TraceCpuOp(cpuState.PC, "LD_E_n8", n8);
+
+        throw new NotImplementedException("LD_E_n8");
+    }
+
+    /// <summary>
+    ///     0x21 LD - 12 cycles
+    ///     <para>
+    ///         Bytes: 3<br />
+    ///         Operands: HL, n16<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_HL_n16(CpuState cpuState, IGameBoy gb)
+    {
+        var n16 = gb.ReadUShort(cpuState.PC);
+        cpuState.PC += 2;
+
+        gb.TraceCpuOp(cpuState.PC, "LD_HL_n16", n16);
+
+        throw new NotImplementedException("LD_HL_n16");
+    }
+
+    /// <summary>
+    ///     0x22 LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: [HLI], A<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_iHLI_A(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_iHLI_A");
+
+        throw new NotImplementedException("LD_iHLI_A");
+    }
+
+    /// <summary>
+    ///     0x26 LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 2<br />
+    ///         Operands: H, n8<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_H_n8(CpuState cpuState, IGameBoy gb)
+    {
+        var n8 = gb.ReadByte(cpuState.PC);
+        cpuState.PC++;
+
+        gb.TraceCpuOp(cpuState.PC, "LD_H_n8", n8);
+
+        throw new NotImplementedException("LD_H_n8");
+    }
+
+    /// <summary>
+    ///     0x2A LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: A, [HLI]<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_A_iHLI(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_A_iHLI");
+
+        throw new NotImplementedException("LD_A_iHLI");
+    }
+
+    /// <summary>
+    ///     0x2E LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 2<br />
+    ///         Operands: L, n8<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_L_n8(CpuState cpuState, IGameBoy gb)
+    {
+        var n8 = gb.ReadByte(cpuState.PC);
+        cpuState.PC++;
+
+        gb.TraceCpuOp(cpuState.PC, "LD_L_n8", n8);
+
+        throw new NotImplementedException("LD_L_n8");
+    }
+
+    /// <summary>
+    ///     0x31 LD - 12 cycles
+    ///     <para>
+    ///         Bytes: 3<br />
+    ///         Operands: SP, n16<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_SP_n16(CpuState cpuState, IGameBoy gb)
+    {
+        var n16 = gb.ReadUShort(cpuState.PC);
+        cpuState.PC += 2;
+
+        gb.TraceCpuOp(cpuState.PC, "LD_SP_n16", n16);
+
+        throw new NotImplementedException("LD_SP_n16");
+    }
+
+    /// <summary>
+    ///     0x32 LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: [HLD], A<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_iHLD_A(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_iHLD_A");
+
+        throw new NotImplementedException("LD_iHLD_A");
+    }
+
+    /// <summary>
+    ///     0x36 LD - 12 cycles
+    ///     <para>
+    ///         Bytes: 2<br />
+    ///         Operands: [HL], n8<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_iHL_n8(CpuState cpuState, IGameBoy gb)
+    {
+        var n8 = gb.ReadByte(cpuState.PC);
+        cpuState.PC++;
+
+        gb.TraceCpuOp(cpuState.PC, "LD_iHL_n8", n8);
+
+        throw new NotImplementedException("LD_iHL_n8");
+    }
+
+    /// <summary>
+    ///     0x3A LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: A, [HLD]<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_A_iHLD(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_A_iHLD");
+
+        throw new NotImplementedException("LD_A_iHLD");
+    }
+
+    /// <summary>
+    ///     0x3E LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 2<br />
+    ///         Operands: A, n8<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_A_n8(CpuState cpuState, IGameBoy gb)
+    {
+        var n8 = gb.ReadByte(cpuState.PC);
+        cpuState.PC++;
+
+        gb.TraceCpuOp(cpuState.PC, "LD_A_n8", n8);
+
+        throw new NotImplementedException("LD_A_n8");
+    }
+
+    /// <summary>
+    ///     0x40 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: B, B<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_B_B(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_B_B");
+
+        throw new NotImplementedException("LD_B_B");
+    }
+
+    /// <summary>
+    ///     0x41 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: B, C<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_B_C(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_B_C");
+
+        throw new NotImplementedException("LD_B_C");
+    }
+
+    /// <summary>
+    ///     0x42 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: B, D<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_B_D(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_B_D");
+
+        throw new NotImplementedException("LD_B_D");
+    }
+
+    /// <summary>
+    ///     0x43 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: B, E<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_B_E(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_B_E");
+
+        throw new NotImplementedException("LD_B_E");
+    }
+
+    /// <summary>
+    ///     0x44 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: B, H<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_B_H(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_B_H");
+
+        throw new NotImplementedException("LD_B_H");
+    }
+
+    /// <summary>
+    ///     0x45 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: B, L<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_B_L(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_B_L");
+
+        throw new NotImplementedException("LD_B_L");
+    }
+
+    /// <summary>
+    ///     0x46 LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: B, [HL]<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_B_iHL(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_B_iHL");
+
+        throw new NotImplementedException("LD_B_iHL");
+    }
+
+    /// <summary>
+    ///     0x47 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: B, A<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_B_A(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_B_A");
+
+        throw new NotImplementedException("LD_B_A");
+    }
+
+    /// <summary>
+    ///     0x48 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: C, B<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_C_B(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_C_B");
+
+        throw new NotImplementedException("LD_C_B");
+    }
+
+    /// <summary>
+    ///     0x49 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: C, C<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_C_C(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_C_C");
+
+        throw new NotImplementedException("LD_C_C");
+    }
+
+    /// <summary>
+    ///     0x4A LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: C, D<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_C_D(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_C_D");
+
+        throw new NotImplementedException("LD_C_D");
+    }
+
+    /// <summary>
+    ///     0x4B LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: C, E<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_C_E(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_C_E");
+
+        throw new NotImplementedException("LD_C_E");
+    }
+
+    /// <summary>
+    ///     0x4C LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: C, H<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_C_H(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_C_H");
+
+        throw new NotImplementedException("LD_C_H");
+    }
+
+    /// <summary>
+    ///     0x4D LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: C, L<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_C_L(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_C_L");
+
+        throw new NotImplementedException("LD_C_L");
+    }
+
+    /// <summary>
+    ///     0x4E LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: C, [HL]<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_C_iHL(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_C_iHL");
+
+        throw new NotImplementedException("LD_C_iHL");
+    }
+
+    /// <summary>
+    ///     0x4F LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: C, A<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_C_A(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_C_A");
+
+        throw new NotImplementedException("LD_C_A");
+    }
+
+    /// <summary>
+    ///     0x50 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: D, B<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_D_B(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_D_B");
+
+        throw new NotImplementedException("LD_D_B");
+    }
+
+    /// <summary>
+    ///     0x51 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: D, C<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_D_C(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_D_C");
+
+        throw new NotImplementedException("LD_D_C");
+    }
+
+    /// <summary>
+    ///     0x52 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: D, D<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_D_D(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_D_D");
+
+        throw new NotImplementedException("LD_D_D");
+    }
+
+    /// <summary>
+    ///     0x53 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: D, E<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_D_E(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_D_E");
+
+        throw new NotImplementedException("LD_D_E");
+    }
+
+    /// <summary>
+    ///     0x54 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: D, H<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_D_H(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_D_H");
+
+        throw new NotImplementedException("LD_D_H");
+    }
+
+    /// <summary>
+    ///     0x55 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: D, L<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_D_L(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_D_L");
+
+        throw new NotImplementedException("LD_D_L");
+    }
+
+    /// <summary>
+    ///     0x56 LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: D, [HL]<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_D_iHL(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_D_iHL");
+
+        throw new NotImplementedException("LD_D_iHL");
+    }
+
+    /// <summary>
+    ///     0x57 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: D, A<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_D_A(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_D_A");
+
+        throw new NotImplementedException("LD_D_A");
+    }
+
+    /// <summary>
+    ///     0x58 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: E, B<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_E_B(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_E_B");
+
+        throw new NotImplementedException("LD_E_B");
+    }
+
+    /// <summary>
+    ///     0x59 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: E, C<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_E_C(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_E_C");
+
+        throw new NotImplementedException("LD_E_C");
+    }
+
+    /// <summary>
+    ///     0x5A LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: E, D<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_E_D(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_E_D");
+
+        throw new NotImplementedException("LD_E_D");
+    }
+
+    /// <summary>
+    ///     0x5B LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: E, E<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_E_E(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_E_E");
+
+        throw new NotImplementedException("LD_E_E");
+    }
+
+    /// <summary>
+    ///     0x5C LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: E, H<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_E_H(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_E_H");
+
+        throw new NotImplementedException("LD_E_H");
+    }
+
+    /// <summary>
+    ///     0x5D LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: E, L<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_E_L(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_E_L");
+
+        throw new NotImplementedException("LD_E_L");
+    }
+
+    /// <summary>
+    ///     0x5E LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: E, [HL]<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_E_iHL(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_E_iHL");
+
+        throw new NotImplementedException("LD_E_iHL");
+    }
+
+    /// <summary>
+    ///     0x5F LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: E, A<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_E_A(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_E_A");
+
+        throw new NotImplementedException("LD_E_A");
+    }
+
+    /// <summary>
+    ///     0x60 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: H, B<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_H_B(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_H_B");
+
+        throw new NotImplementedException("LD_H_B");
+    }
+
+    /// <summary>
+    ///     0x61 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: H, C<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_H_C(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_H_C");
+
+        throw new NotImplementedException("LD_H_C");
+    }
+
+    /// <summary>
+    ///     0x62 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: H, D<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_H_D(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_H_D");
+
+        throw new NotImplementedException("LD_H_D");
+    }
+
+    /// <summary>
+    ///     0x63 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: H, E<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_H_E(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_H_E");
+
+        throw new NotImplementedException("LD_H_E");
+    }
+
+    /// <summary>
+    ///     0x64 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: H, H<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_H_H(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_H_H");
+
+        throw new NotImplementedException("LD_H_H");
+    }
+
+    /// <summary>
+    ///     0x65 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: H, L<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_H_L(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_H_L");
+
+        throw new NotImplementedException("LD_H_L");
+    }
+
+    /// <summary>
+    ///     0x66 LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: H, [HL]<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_H_iHL(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_H_iHL");
+
+        throw new NotImplementedException("LD_H_iHL");
+    }
+
+    /// <summary>
+    ///     0x67 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: H, A<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_H_A(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_H_A");
+
+        throw new NotImplementedException("LD_H_A");
+    }
+
+    /// <summary>
+    ///     0x68 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: L, B<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_L_B(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_L_B");
+
+        throw new NotImplementedException("LD_L_B");
+    }
+
+    /// <summary>
+    ///     0x69 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: L, C<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_L_C(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_L_C");
+
+        throw new NotImplementedException("LD_L_C");
+    }
+
+    /// <summary>
+    ///     0x6A LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: L, D<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_L_D(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_L_D");
+
+        throw new NotImplementedException("LD_L_D");
+    }
+
+    /// <summary>
+    ///     0x6B LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: L, E<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_L_E(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_L_E");
+
+        throw new NotImplementedException("LD_L_E");
+    }
+
+    /// <summary>
+    ///     0x6C LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: L, H<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_L_H(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_L_H");
+
+        throw new NotImplementedException("LD_L_H");
+    }
+
+    /// <summary>
+    ///     0x6D LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: L, L<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_L_L(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_L_L");
+
+        throw new NotImplementedException("LD_L_L");
+    }
+
+    /// <summary>
+    ///     0x6E LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: L, [HL]<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_L_iHL(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_L_iHL");
+
+        throw new NotImplementedException("LD_L_iHL");
+    }
+
+    /// <summary>
+    ///     0x6F LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: L, A<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_L_A(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_L_A");
+
+        throw new NotImplementedException("LD_L_A");
+    }
+
+    /// <summary>
+    ///     0x70 LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: [HL], B<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_iHL_B(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_iHL_B");
+
+        throw new NotImplementedException("LD_iHL_B");
+    }
+
+    /// <summary>
+    ///     0x71 LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: [HL], C<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_iHL_C(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_iHL_C");
+
+        throw new NotImplementedException("LD_iHL_C");
+    }
+
+    /// <summary>
+    ///     0x72 LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: [HL], D<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_iHL_D(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_iHL_D");
+
+        throw new NotImplementedException("LD_iHL_D");
+    }
+
+    /// <summary>
+    ///     0x73 LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: [HL], E<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_iHL_E(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_iHL_E");
+
+        throw new NotImplementedException("LD_iHL_E");
+    }
+
+    /// <summary>
+    ///     0x74 LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: [HL], H<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_iHL_H(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_iHL_H");
+
+        throw new NotImplementedException("LD_iHL_H");
+    }
+
+    /// <summary>
+    ///     0x75 LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: [HL], L<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_iHL_L(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_iHL_L");
+
+        throw new NotImplementedException("LD_iHL_L");
+    }
+
+    /// <summary>
+    ///     0x77 LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: [HL], A<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_iHL_A(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_iHL_A");
+
+        throw new NotImplementedException("LD_iHL_A");
+    }
+
+    /// <summary>
+    ///     0x78 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: A, B<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_A_B(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_A_B");
+
+        throw new NotImplementedException("LD_A_B");
+    }
+
+    /// <summary>
+    ///     0x79 LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: A, C<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_A_C(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_A_C");
+
+        throw new NotImplementedException("LD_A_C");
+    }
+
+    /// <summary>
+    ///     0x7A LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: A, D<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_A_D(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_A_D");
+
+        throw new NotImplementedException("LD_A_D");
+    }
+
+    /// <summary>
+    ///     0x7B LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: A, E<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_A_E(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_A_E");
+
+        throw new NotImplementedException("LD_A_E");
+    }
+
+    /// <summary>
+    ///     0x7C LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: A, H<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_A_H(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_A_H");
+
+        throw new NotImplementedException("LD_A_H");
+    }
+
+    /// <summary>
+    ///     0x7D LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: A, L<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_A_L(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_A_L");
+
+        throw new NotImplementedException("LD_A_L");
+    }
+
+    /// <summary>
+    ///     0x7E LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: A, [HL]<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_A_iHL(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_A_iHL");
+
+        throw new NotImplementedException("LD_A_iHL");
+    }
+
+    /// <summary>
+    ///     0x7F LD - 4 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: A, A<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_A_A(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_A_A");
+
+        throw new NotImplementedException("LD_A_A");
+    }
+
+    /// <summary>
+    ///     0xC1 POP - 12 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: BC<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int POP_BC(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "POP_BC");
+
+        throw new NotImplementedException("POP_BC");
+    }
+
+    /// <summary>
+    ///     0xC5 PUSH - 16 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: BC<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int PUSH_BC(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "PUSH_BC");
+
+        throw new NotImplementedException("PUSH_BC");
+    }
+
+    /// <summary>
+    ///     0xD1 POP - 12 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: DE<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int POP_DE(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "POP_DE");
+
+        throw new NotImplementedException("POP_DE");
+    }
+
+    /// <summary>
+    ///     0xD5 PUSH - 16 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: DE<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int PUSH_DE(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "PUSH_DE");
+
+        throw new NotImplementedException("PUSH_DE");
+    }
+
+    /// <summary>
+    ///     0xE0 LDH - 12 cycles
+    ///     <para>
+    ///         Bytes: 2<br />
+    ///         Operands: [a8], A<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LDH_ia8_A(CpuState cpuState, IGameBoy gb)
+    {
+        var a8 = (ushort)(0xFF00 + gb.ReadByte(cpuState.PC));
+        cpuState.PC++;
+
+        gb.TraceCpuOp(cpuState.PC, "LDH_ia8_A", a8);
+
+        throw new NotImplementedException("LDH_ia8_A");
+    }
+
+    /// <summary>
+    ///     0xE1 POP - 12 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: HL<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int POP_HL(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "POP_HL");
+
+        throw new NotImplementedException("POP_HL");
+    }
+
+    /// <summary>
+    ///     0xE2 LDH - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: [C], A<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LDH_iC_A(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LDH_iC_A");
+
+        throw new NotImplementedException("LDH_iC_A");
+    }
+
+    /// <summary>
+    ///     0xE5 PUSH - 16 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: HL<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int PUSH_HL(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "PUSH_HL");
+
+        throw new NotImplementedException("PUSH_HL");
+    }
+
+    /// <summary>
+    ///     0xEA LD - 16 cycles
+    ///     <para>
+    ///         Bytes: 3<br />
+    ///         Operands: [a16], A<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_ia16_A(CpuState cpuState, IGameBoy gb)
+    {
+        var a16 = gb.ReadUShort(cpuState.PC);
+        cpuState.PC += 2;
+
+        gb.TraceCpuOp(cpuState.PC, "LD_ia16_A", a16);
+
+        throw new NotImplementedException("LD_ia16_A");
+    }
+
+    /// <summary>
+    ///     0xF0 LDH - 12 cycles
+    ///     <para>
+    ///         Bytes: 2<br />
+    ///         Operands: A, [a8]<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LDH_A_ia8(CpuState cpuState, IGameBoy gb)
+    {
+        var a8 = (ushort)(0xFF00 + gb.ReadByte(cpuState.PC));
+        cpuState.PC++;
+
+        gb.TraceCpuOp(cpuState.PC, "LDH_A_ia8", a8);
+
+        throw new NotImplementedException("LDH_A_ia8");
+    }
+
+    /// <summary>
+    ///     0xF1 POP - 12 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: AF<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=Z, N=N, H=H, C=C
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int POP_AF(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "POP_AF");
+
+        throw new NotImplementedException("POP_AF");
+    }
+
+    /// <summary>
+    ///     0xF2 LDH - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: A, [C]<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LDH_A_iC(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LDH_A_iC");
+
+        throw new NotImplementedException("LDH_A_iC");
+    }
+
+    /// <summary>
+    ///     0xF5 PUSH - 16 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: AF<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int PUSH_AF(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "PUSH_AF");
+
+        throw new NotImplementedException("PUSH_AF");
+    }
+
+    /// <summary>
+    ///     0xF8 LD - 12 cycles
+    ///     <para>
+    ///         Bytes: 2<br />
+    ///         Operands: HL, SPI, e8<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=0, N=0, H=H, C=C
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_HL_SPI_e8(CpuState cpuState, IGameBoy gb)
+    {
+        var e8 = (sbyte)gb.ReadByte(cpuState.PC);
+        cpuState.PC++;
+
+        gb.TraceCpuOp(cpuState.PC, "LD_HL_SPI_e8", e8);
+
+        throw new NotImplementedException("LD_HL_SPI_e8");
+    }
+
+    /// <summary>
+    ///     0xF9 LD - 8 cycles
+    ///     <para>
+    ///         Bytes: 1<br />
+    ///         Operands: SP, HL<br />
+    ///         Immediate mode<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_SP_HL(CpuState cpuState, IGameBoy gb)
+    {
+        gb.TraceCpuOp(cpuState.PC, "LD_SP_HL");
+
+        throw new NotImplementedException("LD_SP_HL");
+    }
+
+    /// <summary>
+    ///     0xFA LD - 16 cycles
+    ///     <para>
+    ///         Bytes: 3<br />
+    ///         Operands: A, [a16]<br />
+    ///         Flags: Z=-, N=-, H=-, C=-
+    ///     </para>
+    /// </summary>
+    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
+    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <returns>The number of cycles taken</returns>
+    internal static int LD_A_ia16(CpuState cpuState, IGameBoy gb)
+    {
+        var a16 = gb.ReadUShort(cpuState.PC);
+        cpuState.PC += 2;
+
+        gb.TraceCpuOp(cpuState.PC, "LD_A_ia16", a16);
+
+        throw new NotImplementedException("LD_A_ia16");
+    }
+}
