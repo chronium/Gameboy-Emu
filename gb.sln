@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImGui.NET", "ImGui.NET\src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpcodeGenerator", "OpcodeGenerator\OpcodeGenerator.csproj", "{3BD379D2-E80E-4D73-93BA-065E3554B3E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gb.Tests", "gb.Tests\gb.Tests.csproj", "{B118FBAB-206B-4C26-A3BE-BC95E077DC9B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{3BD379D2-E80E-4D73-93BA-065E3554B3E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BD379D2-E80E-4D73-93BA-065E3554B3E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BD379D2-E80E-4D73-93BA-065E3554B3E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B118FBAB-206B-4C26-A3BE-BC95E077DC9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B118FBAB-206B-4C26-A3BE-BC95E077DC9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B118FBAB-206B-4C26-A3BE-BC95E077DC9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B118FBAB-206B-4C26-A3BE-BC95E077DC9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

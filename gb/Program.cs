@@ -17,12 +17,15 @@ const int SCALE_FACTOR = 8;
 const int GB_CPU_FREQUENCY = 4194304;
 const int SCREEN_FPS = 60;
 
-const int CYCLES_PER_FRAME = 70224 / 100;
+const int CYCLES_PER_FRAME = 70224 / 1;
 
 DllMap.Register(typeof(SDL).Assembly);
 
-// var bootRom = File.ReadAllBytes("dmg_bootrom.bin");
-var rom = File.ReadAllBytes("rom.gb");
+var bootRom = File.ReadAllBytes("dmg_bootrom.bin");
+// var rom = File.ReadAllBytes("rom.gb");
+// var rom = File.ReadAllBytes("rom-4.gb");
+// var rom = File.ReadAllBytes("bgblogo.gb");
+var rom = File.ReadAllBytes("tetris.gb");
 
 var header = GameBoyCartridgeHeader.FromBytes(rom[0x100..0x152]);
 
@@ -65,9 +68,9 @@ unsafe
     SDL_SetWindowTitle(window, header.GetTitle());
 
     var gb = new GameBoy();
-    // gb.LoadBootRom(bootRom);
+    gb.LoadBootRom(bootRom);
     gb.LoadRom(rom);
-    gb.ResetNoBootRom(header);
+    // gb.ResetNoBootRom(header);
 
     try
     {
@@ -133,9 +136,41 @@ unsafe
             ImGui_SDL3.ImGui_ImplSDL3_NewFrame();
             ImGui.NewFrame();
 
+            if (ImGui.BeginMainMenuBar())
+            {
+                if (ImGui.BeginMenu("File"))
+                {
+                    ImGui.MenuItem("Open");
+
+                    ImGui.EndMenu();
+                }
+
+                ImGui.EndMainMenuBar();
+            }
+
+            if (ImGui.Begin("Debugger"))
+            {
+                ImGui.Button("Run");
+                ImGui.SameLine();
+                ImGui.Button("Step");
+                ImGui.SameLine();
+                ImGui.Button("Continue");
+
+                ImGui.BeginGroup();
+
+                var breakpointAddress = "";
+                ImGui.InputTextWithHint("##BreakpointAddress", "XXXX", ref breakpointAddress, 4);
+
+                ImGui.Button("Add");
+
+                ImGui.EndGroup();
+
+                ImGui.End();
+            }
+
             ImGui.Begin("Registers");
 
-            gb.CPU.ImGuiRegistersDisplay();
+            gb.CpuState.ImGuiRegistersDisplay();
 
             ImGui.End();
 
@@ -282,7 +317,7 @@ byte[] GetTileData(GameBoy gb, ushort address)
     return result;
 }
 
-void DrawTile(GameBoy gb, Span<uint> pixels, byte[] tileData, int xx, int yy, int width)
+void DrawTile(GameBoy gb, Span<uint> pixels, Span<byte> tileData, int xx, int yy, int width)
 {
     for (var y = 0; y < 8; y++)
     {

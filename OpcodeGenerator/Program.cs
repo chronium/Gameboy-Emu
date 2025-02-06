@@ -235,46 +235,46 @@ internal class Generator
         if (opcode.Operands.Any(op => op.Name == "n8"))
         {
             AppendLine("var n8 = gb.ReadByte(cpuState.PC);");
+            AppendLine($"gb.TraceCpuOp(cpuState.PC - 1, \"{fnName}\", n8);");
+            AppendLine();
             AppendLine("cpuState.PC++;");
             AppendLine();
-
-            AppendLine($"gb.TraceCpuOp(cpuState.PC, \"{fnName}\", n8);");
         }
         else if (opcode.Operands.Any(op => op.Name == "n16"))
         {
             AppendLine("var n16 = gb.ReadUShort(cpuState.PC);");
+            AppendLine($"gb.TraceCpuOp(cpuState.PC - 1, \"{fnName}\", n16);");
+            AppendLine();
             AppendLine("cpuState.PC += 2;");
             AppendLine();
-
-            AppendLine($"gb.TraceCpuOp(cpuState.PC, \"{fnName}\", n16);");
         }
         else if (opcode.Operands.Any(op => op.Name == "a8"))
         {
             AppendLine("var a8 = (ushort)(0xFF00 + gb.ReadByte(cpuState.PC));");
+            AppendLine($"gb.TraceCpuOp(cpuState.PC - 1, \"{fnName}\", a8);");
+            AppendLine();
             AppendLine("cpuState.PC++;");
             AppendLine();
-
-            AppendLine($"gb.TraceCpuOp(cpuState.PC, \"{fnName}\", a8);");
         }
         else if (opcode.Operands.Any(op => op.Name == "a16"))
         {
             AppendLine("var a16 = gb.ReadUShort(cpuState.PC);");
+            AppendLine($"gb.TraceCpuOp(cpuState.PC - 1, \"{fnName}\", a16);");
+            AppendLine();
             AppendLine("cpuState.PC += 2;");
             AppendLine();
-
-            AppendLine($"gb.TraceCpuOp(cpuState.PC, \"{fnName}\", a16);");
         }
         else if (opcode.Operands.Any(op => op.Name == "e8"))
         {
             AppendLine("var e8 = (sbyte)gb.ReadByte(cpuState.PC);");
+            AppendLine($"gb.TraceCpuOp(cpuState.PC - 1, \"{fnName}\", e8);");
+            AppendLine();
             AppendLine("cpuState.PC++;");
             AppendLine();
-
-            AppendLine($"gb.TraceCpuOp(cpuState.PC, \"{fnName}\", e8);");
         }
         else
         {
-            AppendLine($"gb.TraceCpuOp(cpuState.PC, \"{fnName}\");");
+            AppendLine($"gb.TraceCpuOp(cpuState.PC - 1, \"{fnName}\");");
         }
 
         AppendLine();

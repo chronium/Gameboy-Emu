@@ -18,7 +18,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RLC_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RLC_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "RLC_B");
 
         throw new NotImplementedException("RLC_B");
     }
@@ -37,7 +37,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RLC_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RLC_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "RLC_C");
 
         throw new NotImplementedException("RLC_C");
     }
@@ -56,7 +56,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RLC_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RLC_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "RLC_D");
 
         throw new NotImplementedException("RLC_D");
     }
@@ -75,7 +75,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RLC_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RLC_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "RLC_E");
 
         throw new NotImplementedException("RLC_E");
     }
@@ -94,7 +94,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RLC_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RLC_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "RLC_H");
 
         throw new NotImplementedException("RLC_H");
     }
@@ -113,7 +113,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RLC_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RLC_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "RLC_L");
 
         throw new NotImplementedException("RLC_L");
     }
@@ -131,7 +131,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RLC_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RLC_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "RLC_iHL");
 
         throw new NotImplementedException("RLC_iHL");
     }
@@ -150,7 +150,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RLC_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RLC_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "RLC_A");
 
         throw new NotImplementedException("RLC_A");
     }
@@ -169,7 +169,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RRC_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RRC_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "RRC_B");
 
         throw new NotImplementedException("RRC_B");
     }
@@ -188,7 +188,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RRC_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RRC_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "RRC_C");
 
         throw new NotImplementedException("RRC_C");
     }
@@ -207,7 +207,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RRC_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RRC_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "RRC_D");
 
         throw new NotImplementedException("RRC_D");
     }
@@ -226,7 +226,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RRC_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RRC_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "RRC_E");
 
         throw new NotImplementedException("RRC_E");
     }
@@ -245,7 +245,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RRC_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RRC_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "RRC_H");
 
         throw new NotImplementedException("RRC_H");
     }
@@ -264,7 +264,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RRC_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RRC_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "RRC_L");
 
         throw new NotImplementedException("RRC_L");
     }
@@ -282,7 +282,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RRC_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RRC_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "RRC_iHL");
 
         throw new NotImplementedException("RRC_iHL");
     }
@@ -301,7 +301,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RRC_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RRC_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "RRC_A");
 
         throw new NotImplementedException("RRC_A");
     }
@@ -320,9 +320,18 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RL_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RL_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "RL_B");
 
-        throw new NotImplementedException("RL_B");
+        cpuState.F = 0;
+
+        var bit7 = (cpuState.B & 0b1000_0000) != 0;
+        cpuState.F = bit7 ? cpuState.F | Flags.Carry : cpuState.F & ~Flags.Carry;
+
+        cpuState.B = (byte)((cpuState.B << 1) | (bit7 ? 1 : 0));
+
+        cpuState.F = cpuState.B == 0 ? cpuState.F | Flags.Zero : cpuState.F & ~Flags.Zero;
+
+        return 8;
     }
 
     /// <summary>
@@ -339,9 +348,18 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RL_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RL_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "RL_C");
 
-        throw new NotImplementedException("RL_C");
+        cpuState.F = 0;
+
+        var bit7 = (cpuState.C & 0b1000_0000) != 0;
+        cpuState.F = bit7 ? cpuState.F | Flags.Carry : cpuState.F & ~Flags.Carry;
+
+        cpuState.C = (byte)((cpuState.C << 1) | (bit7 ? 1 : 0));
+
+        cpuState.F = cpuState.C == 0 ? cpuState.F | Flags.Zero : cpuState.F & ~Flags.Zero;
+
+        return 8;
     }
 
     /// <summary>
@@ -358,7 +376,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RL_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RL_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "RL_D");
 
         throw new NotImplementedException("RL_D");
     }
@@ -377,7 +395,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RL_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RL_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "RL_E");
 
         throw new NotImplementedException("RL_E");
     }
@@ -396,7 +414,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RL_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RL_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "RL_H");
 
         throw new NotImplementedException("RL_H");
     }
@@ -415,7 +433,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RL_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RL_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "RL_L");
 
         throw new NotImplementedException("RL_L");
     }
@@ -433,7 +451,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RL_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RL_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "RL_iHL");
 
         throw new NotImplementedException("RL_iHL");
     }
@@ -452,7 +470,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RL_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RL_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "RL_A");
 
         throw new NotImplementedException("RL_A");
     }
@@ -471,7 +489,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RR_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RR_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "RR_B");
 
         throw new NotImplementedException("RR_B");
     }
@@ -490,7 +508,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RR_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RR_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "RR_C");
 
         throw new NotImplementedException("RR_C");
     }
@@ -509,7 +527,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RR_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RR_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "RR_D");
 
         throw new NotImplementedException("RR_D");
     }
@@ -528,7 +546,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RR_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RR_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "RR_E");
 
         throw new NotImplementedException("RR_E");
     }
@@ -547,7 +565,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RR_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RR_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "RR_H");
 
         throw new NotImplementedException("RR_H");
     }
@@ -566,7 +584,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RR_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RR_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "RR_L");
 
         throw new NotImplementedException("RR_L");
     }
@@ -584,7 +602,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RR_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RR_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "RR_iHL");
 
         throw new NotImplementedException("RR_iHL");
     }
@@ -603,7 +621,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RR_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RR_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "RR_A");
 
         throw new NotImplementedException("RR_A");
     }
@@ -622,7 +640,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SLA_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SLA_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "SLA_B");
 
         throw new NotImplementedException("SLA_B");
     }
@@ -641,7 +659,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SLA_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SLA_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "SLA_C");
 
         throw new NotImplementedException("SLA_C");
     }
@@ -660,7 +678,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SLA_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SLA_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "SLA_D");
 
         throw new NotImplementedException("SLA_D");
     }
@@ -679,7 +697,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SLA_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SLA_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "SLA_E");
 
         throw new NotImplementedException("SLA_E");
     }
@@ -698,7 +716,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SLA_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SLA_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "SLA_H");
 
         throw new NotImplementedException("SLA_H");
     }
@@ -717,7 +735,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SLA_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SLA_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "SLA_L");
 
         throw new NotImplementedException("SLA_L");
     }
@@ -735,7 +753,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SLA_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SLA_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "SLA_iHL");
 
         throw new NotImplementedException("SLA_iHL");
     }
@@ -754,7 +772,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SLA_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SLA_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "SLA_A");
 
         throw new NotImplementedException("SLA_A");
     }
@@ -773,7 +791,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SRA_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SRA_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "SRA_B");
 
         throw new NotImplementedException("SRA_B");
     }
@@ -792,7 +810,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SRA_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SRA_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "SRA_C");
 
         throw new NotImplementedException("SRA_C");
     }
@@ -811,7 +829,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SRA_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SRA_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "SRA_D");
 
         throw new NotImplementedException("SRA_D");
     }
@@ -830,7 +848,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SRA_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SRA_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "SRA_E");
 
         throw new NotImplementedException("SRA_E");
     }
@@ -849,7 +867,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SRA_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SRA_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "SRA_H");
 
         throw new NotImplementedException("SRA_H");
     }
@@ -868,7 +886,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SRA_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SRA_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "SRA_L");
 
         throw new NotImplementedException("SRA_L");
     }
@@ -886,7 +904,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SRA_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SRA_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "SRA_iHL");
 
         throw new NotImplementedException("SRA_iHL");
     }
@@ -905,7 +923,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SRA_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SRA_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "SRA_A");
 
         throw new NotImplementedException("SRA_A");
     }
@@ -924,7 +942,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SWAP_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SWAP_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "SWAP_B");
 
         throw new NotImplementedException("SWAP_B");
     }
@@ -943,7 +961,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SWAP_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SWAP_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "SWAP_C");
 
         throw new NotImplementedException("SWAP_C");
     }
@@ -962,7 +980,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SWAP_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SWAP_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "SWAP_D");
 
         throw new NotImplementedException("SWAP_D");
     }
@@ -981,7 +999,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SWAP_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SWAP_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "SWAP_E");
 
         throw new NotImplementedException("SWAP_E");
     }
@@ -1000,7 +1018,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SWAP_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SWAP_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "SWAP_H");
 
         throw new NotImplementedException("SWAP_H");
     }
@@ -1019,7 +1037,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SWAP_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SWAP_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "SWAP_L");
 
         throw new NotImplementedException("SWAP_L");
     }
@@ -1037,7 +1055,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SWAP_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SWAP_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "SWAP_iHL");
 
         throw new NotImplementedException("SWAP_iHL");
     }
@@ -1056,9 +1074,16 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SWAP_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SWAP_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "SWAP_A");
 
-        throw new NotImplementedException("SWAP_A");
+        cpuState.F = 0;
+
+        cpuState.A = (byte)((cpuState.A >> 4) | (cpuState.A << 4));
+
+        if (cpuState.A == 0)
+            cpuState.F |= Flags.Zero;
+
+        return 8;
     }
 
     /// <summary>
@@ -1075,7 +1100,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SRL_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SRL_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "SRL_B");
 
         throw new NotImplementedException("SRL_B");
     }
@@ -1094,7 +1119,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SRL_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SRL_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "SRL_C");
 
         throw new NotImplementedException("SRL_C");
     }
@@ -1113,7 +1138,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SRL_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SRL_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "SRL_D");
 
         throw new NotImplementedException("SRL_D");
     }
@@ -1132,7 +1157,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SRL_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SRL_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "SRL_E");
 
         throw new NotImplementedException("SRL_E");
     }
@@ -1151,7 +1176,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SRL_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SRL_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "SRL_H");
 
         throw new NotImplementedException("SRL_H");
     }
@@ -1170,7 +1195,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SRL_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SRL_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "SRL_L");
 
         throw new NotImplementedException("SRL_L");
     }
@@ -1188,7 +1213,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SRL_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SRL_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "SRL_iHL");
 
         throw new NotImplementedException("SRL_iHL");
     }
@@ -1207,7 +1232,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SRL_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SRL_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "SRL_A");
 
         throw new NotImplementedException("SRL_A");
     }
@@ -1226,7 +1251,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_0_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_0_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_0_B");
 
         throw new NotImplementedException("BIT_0_B");
     }
@@ -1245,7 +1270,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_0_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_0_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_0_C");
 
         throw new NotImplementedException("BIT_0_C");
     }
@@ -1264,7 +1289,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_0_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_0_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_0_D");
 
         throw new NotImplementedException("BIT_0_D");
     }
@@ -1283,7 +1308,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_0_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_0_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_0_E");
 
         throw new NotImplementedException("BIT_0_E");
     }
@@ -1302,7 +1327,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_0_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_0_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_0_H");
 
         throw new NotImplementedException("BIT_0_H");
     }
@@ -1321,7 +1346,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_0_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_0_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_0_L");
 
         throw new NotImplementedException("BIT_0_L");
     }
@@ -1339,7 +1364,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_0_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_0_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_0_iHL");
 
         throw new NotImplementedException("BIT_0_iHL");
     }
@@ -1358,7 +1383,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_0_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_0_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_0_A");
 
         throw new NotImplementedException("BIT_0_A");
     }
@@ -1377,7 +1402,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_1_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_1_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_1_B");
 
         throw new NotImplementedException("BIT_1_B");
     }
@@ -1396,7 +1421,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_1_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_1_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_1_C");
 
         throw new NotImplementedException("BIT_1_C");
     }
@@ -1415,7 +1440,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_1_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_1_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_1_D");
 
         throw new NotImplementedException("BIT_1_D");
     }
@@ -1434,7 +1459,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_1_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_1_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_1_E");
 
         throw new NotImplementedException("BIT_1_E");
     }
@@ -1453,7 +1478,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_1_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_1_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_1_H");
 
         throw new NotImplementedException("BIT_1_H");
     }
@@ -1472,7 +1497,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_1_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_1_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_1_L");
 
         throw new NotImplementedException("BIT_1_L");
     }
@@ -1490,7 +1515,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_1_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_1_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_1_iHL");
 
         throw new NotImplementedException("BIT_1_iHL");
     }
@@ -1509,7 +1534,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_1_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_1_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_1_A");
 
         throw new NotImplementedException("BIT_1_A");
     }
@@ -1528,7 +1553,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_2_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_2_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_2_B");
 
         throw new NotImplementedException("BIT_2_B");
     }
@@ -1547,7 +1572,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_2_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_2_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_2_C");
 
         throw new NotImplementedException("BIT_2_C");
     }
@@ -1566,7 +1591,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_2_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_2_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_2_D");
 
         throw new NotImplementedException("BIT_2_D");
     }
@@ -1585,7 +1610,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_2_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_2_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_2_E");
 
         throw new NotImplementedException("BIT_2_E");
     }
@@ -1604,7 +1629,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_2_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_2_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_2_H");
 
         throw new NotImplementedException("BIT_2_H");
     }
@@ -1623,7 +1648,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_2_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_2_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_2_L");
 
         throw new NotImplementedException("BIT_2_L");
     }
@@ -1641,7 +1666,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_2_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_2_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_2_iHL");
 
         throw new NotImplementedException("BIT_2_iHL");
     }
@@ -1660,7 +1685,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_2_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_2_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_2_A");
 
         throw new NotImplementedException("BIT_2_A");
     }
@@ -1679,7 +1704,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_3_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_3_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_3_B");
 
         throw new NotImplementedException("BIT_3_B");
     }
@@ -1698,7 +1723,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_3_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_3_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_3_C");
 
         throw new NotImplementedException("BIT_3_C");
     }
@@ -1717,7 +1742,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_3_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_3_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_3_D");
 
         throw new NotImplementedException("BIT_3_D");
     }
@@ -1736,7 +1761,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_3_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_3_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_3_E");
 
         throw new NotImplementedException("BIT_3_E");
     }
@@ -1755,7 +1780,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_3_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_3_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_3_H");
 
         throw new NotImplementedException("BIT_3_H");
     }
@@ -1774,7 +1799,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_3_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_3_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_3_L");
 
         throw new NotImplementedException("BIT_3_L");
     }
@@ -1792,7 +1817,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_3_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_3_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_3_iHL");
 
         throw new NotImplementedException("BIT_3_iHL");
     }
@@ -1811,7 +1836,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_3_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_3_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_3_A");
 
         throw new NotImplementedException("BIT_3_A");
     }
@@ -1830,7 +1855,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_4_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_4_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_4_B");
 
         throw new NotImplementedException("BIT_4_B");
     }
@@ -1849,7 +1874,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_4_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_4_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_4_C");
 
         throw new NotImplementedException("BIT_4_C");
     }
@@ -1868,7 +1893,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_4_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_4_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_4_D");
 
         throw new NotImplementedException("BIT_4_D");
     }
@@ -1887,7 +1912,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_4_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_4_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_4_E");
 
         throw new NotImplementedException("BIT_4_E");
     }
@@ -1906,7 +1931,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_4_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_4_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_4_H");
 
         throw new NotImplementedException("BIT_4_H");
     }
@@ -1925,7 +1950,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_4_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_4_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_4_L");
 
         throw new NotImplementedException("BIT_4_L");
     }
@@ -1943,7 +1968,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_4_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_4_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_4_iHL");
 
         throw new NotImplementedException("BIT_4_iHL");
     }
@@ -1962,7 +1987,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_4_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_4_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_4_A");
 
         throw new NotImplementedException("BIT_4_A");
     }
@@ -1981,7 +2006,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_5_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_5_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_5_B");
 
         throw new NotImplementedException("BIT_5_B");
     }
@@ -2000,7 +2025,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_5_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_5_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_5_C");
 
         throw new NotImplementedException("BIT_5_C");
     }
@@ -2019,7 +2044,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_5_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_5_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_5_D");
 
         throw new NotImplementedException("BIT_5_D");
     }
@@ -2038,7 +2063,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_5_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_5_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_5_E");
 
         throw new NotImplementedException("BIT_5_E");
     }
@@ -2057,9 +2082,17 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_5_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_5_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_5_H");
 
-        throw new NotImplementedException("BIT_5_H");
+        cpuState.F &= ~Flags.Subtract;
+        cpuState.F |= Flags.HalfCarry;
+
+        if ((cpuState.H & 0b00100000) != 0)
+            cpuState.F |= Flags.Zero;
+        else
+            cpuState.F &= ~Flags.Zero;
+
+        return 8;
     }
 
     /// <summary>
@@ -2076,7 +2109,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_5_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_5_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_5_L");
 
         throw new NotImplementedException("BIT_5_L");
     }
@@ -2094,7 +2127,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_5_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_5_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_5_iHL");
 
         throw new NotImplementedException("BIT_5_iHL");
     }
@@ -2113,7 +2146,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_5_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_5_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_5_A");
 
         throw new NotImplementedException("BIT_5_A");
     }
@@ -2132,7 +2165,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_6_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_6_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_6_B");
 
         throw new NotImplementedException("BIT_6_B");
     }
@@ -2151,7 +2184,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_6_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_6_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_6_C");
 
         throw new NotImplementedException("BIT_6_C");
     }
@@ -2170,7 +2203,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_6_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_6_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_6_D");
 
         throw new NotImplementedException("BIT_6_D");
     }
@@ -2189,7 +2222,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_6_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_6_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_6_E");
 
         throw new NotImplementedException("BIT_6_E");
     }
@@ -2208,7 +2241,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_6_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_6_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_6_H");
 
         throw new NotImplementedException("BIT_6_H");
     }
@@ -2227,7 +2260,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_6_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_6_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_6_L");
 
         throw new NotImplementedException("BIT_6_L");
     }
@@ -2245,7 +2278,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_6_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_6_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_6_iHL");
 
         throw new NotImplementedException("BIT_6_iHL");
     }
@@ -2264,7 +2297,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_6_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_6_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_6_A");
 
         throw new NotImplementedException("BIT_6_A");
     }
@@ -2283,7 +2316,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_7_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_7_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_7_B");
 
         throw new NotImplementedException("BIT_7_B");
     }
@@ -2302,7 +2335,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_7_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_7_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_7_C");
 
         throw new NotImplementedException("BIT_7_C");
     }
@@ -2321,7 +2354,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_7_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_7_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_7_D");
 
         throw new NotImplementedException("BIT_7_D");
     }
@@ -2340,7 +2373,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_7_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_7_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_7_E");
 
         throw new NotImplementedException("BIT_7_E");
     }
@@ -2359,9 +2392,17 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_7_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_7_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_7_H");
 
-        throw new NotImplementedException("BIT_7_H");
+        cpuState.F &= ~Flags.Subtract;
+        cpuState.F |= Flags.HalfCarry;
+
+        if ((cpuState.H & 0b10000000) != 0)
+            cpuState.F |= Flags.Zero;
+        else
+            cpuState.F &= ~Flags.Zero;
+
+        return 8;
     }
 
     /// <summary>
@@ -2378,7 +2419,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_7_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_7_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_7_L");
 
         throw new NotImplementedException("BIT_7_L");
     }
@@ -2396,7 +2437,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_7_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_7_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_7_iHL");
 
         throw new NotImplementedException("BIT_7_iHL");
     }
@@ -2415,7 +2456,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int BIT_7_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "BIT_7_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "BIT_7_A");
 
         throw new NotImplementedException("BIT_7_A");
     }
@@ -2434,7 +2475,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_0_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_0_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_0_B");
 
         throw new NotImplementedException("RES_0_B");
     }
@@ -2453,7 +2494,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_0_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_0_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_0_C");
 
         throw new NotImplementedException("RES_0_C");
     }
@@ -2472,7 +2513,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_0_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_0_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_0_D");
 
         throw new NotImplementedException("RES_0_D");
     }
@@ -2491,7 +2532,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_0_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_0_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_0_E");
 
         throw new NotImplementedException("RES_0_E");
     }
@@ -2510,7 +2551,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_0_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_0_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_0_H");
 
         throw new NotImplementedException("RES_0_H");
     }
@@ -2529,7 +2570,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_0_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_0_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_0_L");
 
         throw new NotImplementedException("RES_0_L");
     }
@@ -2547,7 +2588,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_0_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_0_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_0_iHL");
 
         throw new NotImplementedException("RES_0_iHL");
     }
@@ -2566,7 +2607,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_0_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_0_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_0_A");
 
         throw new NotImplementedException("RES_0_A");
     }
@@ -2585,7 +2626,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_1_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_1_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_1_B");
 
         throw new NotImplementedException("RES_1_B");
     }
@@ -2604,7 +2645,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_1_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_1_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_1_C");
 
         throw new NotImplementedException("RES_1_C");
     }
@@ -2623,7 +2664,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_1_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_1_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_1_D");
 
         throw new NotImplementedException("RES_1_D");
     }
@@ -2642,7 +2683,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_1_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_1_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_1_E");
 
         throw new NotImplementedException("RES_1_E");
     }
@@ -2661,7 +2702,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_1_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_1_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_1_H");
 
         throw new NotImplementedException("RES_1_H");
     }
@@ -2680,7 +2721,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_1_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_1_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_1_L");
 
         throw new NotImplementedException("RES_1_L");
     }
@@ -2698,7 +2739,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_1_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_1_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_1_iHL");
 
         throw new NotImplementedException("RES_1_iHL");
     }
@@ -2717,7 +2758,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_1_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_1_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_1_A");
 
         throw new NotImplementedException("RES_1_A");
     }
@@ -2736,7 +2777,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_2_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_2_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_2_B");
 
         throw new NotImplementedException("RES_2_B");
     }
@@ -2755,7 +2796,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_2_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_2_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_2_C");
 
         throw new NotImplementedException("RES_2_C");
     }
@@ -2774,7 +2815,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_2_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_2_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_2_D");
 
         throw new NotImplementedException("RES_2_D");
     }
@@ -2793,7 +2834,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_2_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_2_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_2_E");
 
         throw new NotImplementedException("RES_2_E");
     }
@@ -2812,7 +2853,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_2_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_2_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_2_H");
 
         throw new NotImplementedException("RES_2_H");
     }
@@ -2831,7 +2872,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_2_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_2_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_2_L");
 
         throw new NotImplementedException("RES_2_L");
     }
@@ -2849,7 +2890,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_2_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_2_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_2_iHL");
 
         throw new NotImplementedException("RES_2_iHL");
     }
@@ -2868,7 +2909,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_2_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_2_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_2_A");
 
         throw new NotImplementedException("RES_2_A");
     }
@@ -2887,7 +2928,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_3_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_3_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_3_B");
 
         throw new NotImplementedException("RES_3_B");
     }
@@ -2906,7 +2947,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_3_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_3_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_3_C");
 
         throw new NotImplementedException("RES_3_C");
     }
@@ -2925,7 +2966,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_3_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_3_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_3_D");
 
         throw new NotImplementedException("RES_3_D");
     }
@@ -2944,7 +2985,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_3_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_3_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_3_E");
 
         throw new NotImplementedException("RES_3_E");
     }
@@ -2963,7 +3004,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_3_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_3_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_3_H");
 
         throw new NotImplementedException("RES_3_H");
     }
@@ -2982,7 +3023,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_3_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_3_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_3_L");
 
         throw new NotImplementedException("RES_3_L");
     }
@@ -3000,7 +3041,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_3_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_3_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_3_iHL");
 
         throw new NotImplementedException("RES_3_iHL");
     }
@@ -3019,7 +3060,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_3_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_3_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_3_A");
 
         throw new NotImplementedException("RES_3_A");
     }
@@ -3038,7 +3079,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_4_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_4_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_4_B");
 
         throw new NotImplementedException("RES_4_B");
     }
@@ -3057,7 +3098,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_4_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_4_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_4_C");
 
         throw new NotImplementedException("RES_4_C");
     }
@@ -3076,7 +3117,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_4_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_4_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_4_D");
 
         throw new NotImplementedException("RES_4_D");
     }
@@ -3095,7 +3136,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_4_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_4_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_4_E");
 
         throw new NotImplementedException("RES_4_E");
     }
@@ -3114,7 +3155,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_4_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_4_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_4_H");
 
         throw new NotImplementedException("RES_4_H");
     }
@@ -3133,7 +3174,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_4_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_4_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_4_L");
 
         throw new NotImplementedException("RES_4_L");
     }
@@ -3151,7 +3192,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_4_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_4_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_4_iHL");
 
         throw new NotImplementedException("RES_4_iHL");
     }
@@ -3170,7 +3211,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_4_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_4_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_4_A");
 
         throw new NotImplementedException("RES_4_A");
     }
@@ -3189,7 +3230,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_5_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_5_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_5_B");
 
         throw new NotImplementedException("RES_5_B");
     }
@@ -3208,7 +3249,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_5_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_5_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_5_C");
 
         throw new NotImplementedException("RES_5_C");
     }
@@ -3227,7 +3268,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_5_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_5_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_5_D");
 
         throw new NotImplementedException("RES_5_D");
     }
@@ -3246,7 +3287,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_5_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_5_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_5_E");
 
         throw new NotImplementedException("RES_5_E");
     }
@@ -3265,7 +3306,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_5_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_5_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_5_H");
 
         throw new NotImplementedException("RES_5_H");
     }
@@ -3284,7 +3325,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_5_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_5_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_5_L");
 
         throw new NotImplementedException("RES_5_L");
     }
@@ -3302,7 +3343,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_5_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_5_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_5_iHL");
 
         throw new NotImplementedException("RES_5_iHL");
     }
@@ -3321,7 +3362,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_5_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_5_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_5_A");
 
         throw new NotImplementedException("RES_5_A");
     }
@@ -3340,7 +3381,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_6_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_6_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_6_B");
 
         throw new NotImplementedException("RES_6_B");
     }
@@ -3359,7 +3400,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_6_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_6_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_6_C");
 
         throw new NotImplementedException("RES_6_C");
     }
@@ -3378,7 +3419,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_6_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_6_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_6_D");
 
         throw new NotImplementedException("RES_6_D");
     }
@@ -3397,7 +3438,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_6_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_6_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_6_E");
 
         throw new NotImplementedException("RES_6_E");
     }
@@ -3416,7 +3457,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_6_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_6_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_6_H");
 
         throw new NotImplementedException("RES_6_H");
     }
@@ -3435,7 +3476,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_6_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_6_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_6_L");
 
         throw new NotImplementedException("RES_6_L");
     }
@@ -3453,7 +3494,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_6_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_6_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_6_iHL");
 
         throw new NotImplementedException("RES_6_iHL");
     }
@@ -3472,7 +3513,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_6_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_6_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_6_A");
 
         throw new NotImplementedException("RES_6_A");
     }
@@ -3491,7 +3532,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_7_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_7_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_7_B");
 
         throw new NotImplementedException("RES_7_B");
     }
@@ -3510,7 +3551,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_7_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_7_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_7_C");
 
         throw new NotImplementedException("RES_7_C");
     }
@@ -3529,7 +3570,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_7_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_7_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_7_D");
 
         throw new NotImplementedException("RES_7_D");
     }
@@ -3548,7 +3589,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_7_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_7_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_7_E");
 
         throw new NotImplementedException("RES_7_E");
     }
@@ -3567,7 +3608,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_7_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_7_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_7_H");
 
         throw new NotImplementedException("RES_7_H");
     }
@@ -3586,7 +3627,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_7_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_7_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_7_L");
 
         throw new NotImplementedException("RES_7_L");
     }
@@ -3604,7 +3645,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_7_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_7_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_7_iHL");
 
         throw new NotImplementedException("RES_7_iHL");
     }
@@ -3623,7 +3664,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int RES_7_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "RES_7_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "RES_7_A");
 
         throw new NotImplementedException("RES_7_A");
     }
@@ -3642,7 +3683,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_0_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_0_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_0_B");
 
         throw new NotImplementedException("SET_0_B");
     }
@@ -3661,7 +3702,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_0_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_0_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_0_C");
 
         throw new NotImplementedException("SET_0_C");
     }
@@ -3680,7 +3721,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_0_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_0_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_0_D");
 
         throw new NotImplementedException("SET_0_D");
     }
@@ -3699,7 +3740,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_0_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_0_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_0_E");
 
         throw new NotImplementedException("SET_0_E");
     }
@@ -3718,7 +3759,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_0_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_0_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_0_H");
 
         throw new NotImplementedException("SET_0_H");
     }
@@ -3737,7 +3778,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_0_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_0_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_0_L");
 
         throw new NotImplementedException("SET_0_L");
     }
@@ -3755,7 +3796,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_0_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_0_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_0_iHL");
 
         throw new NotImplementedException("SET_0_iHL");
     }
@@ -3774,7 +3815,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_0_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_0_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_0_A");
 
         throw new NotImplementedException("SET_0_A");
     }
@@ -3793,7 +3834,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_1_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_1_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_1_B");
 
         throw new NotImplementedException("SET_1_B");
     }
@@ -3812,7 +3853,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_1_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_1_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_1_C");
 
         throw new NotImplementedException("SET_1_C");
     }
@@ -3831,7 +3872,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_1_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_1_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_1_D");
 
         throw new NotImplementedException("SET_1_D");
     }
@@ -3850,7 +3891,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_1_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_1_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_1_E");
 
         throw new NotImplementedException("SET_1_E");
     }
@@ -3869,7 +3910,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_1_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_1_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_1_H");
 
         throw new NotImplementedException("SET_1_H");
     }
@@ -3888,7 +3929,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_1_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_1_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_1_L");
 
         throw new NotImplementedException("SET_1_L");
     }
@@ -3906,7 +3947,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_1_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_1_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_1_iHL");
 
         throw new NotImplementedException("SET_1_iHL");
     }
@@ -3925,7 +3966,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_1_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_1_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_1_A");
 
         throw new NotImplementedException("SET_1_A");
     }
@@ -3944,7 +3985,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_2_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_2_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_2_B");
 
         throw new NotImplementedException("SET_2_B");
     }
@@ -3963,7 +4004,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_2_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_2_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_2_C");
 
         throw new NotImplementedException("SET_2_C");
     }
@@ -3982,7 +4023,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_2_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_2_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_2_D");
 
         throw new NotImplementedException("SET_2_D");
     }
@@ -4001,7 +4042,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_2_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_2_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_2_E");
 
         throw new NotImplementedException("SET_2_E");
     }
@@ -4020,7 +4061,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_2_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_2_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_2_H");
 
         throw new NotImplementedException("SET_2_H");
     }
@@ -4039,7 +4080,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_2_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_2_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_2_L");
 
         throw new NotImplementedException("SET_2_L");
     }
@@ -4057,7 +4098,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_2_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_2_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_2_iHL");
 
         throw new NotImplementedException("SET_2_iHL");
     }
@@ -4076,7 +4117,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_2_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_2_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_2_A");
 
         throw new NotImplementedException("SET_2_A");
     }
@@ -4095,7 +4136,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_3_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_3_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_3_B");
 
         throw new NotImplementedException("SET_3_B");
     }
@@ -4114,7 +4155,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_3_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_3_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_3_C");
 
         throw new NotImplementedException("SET_3_C");
     }
@@ -4133,7 +4174,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_3_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_3_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_3_D");
 
         throw new NotImplementedException("SET_3_D");
     }
@@ -4152,7 +4193,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_3_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_3_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_3_E");
 
         throw new NotImplementedException("SET_3_E");
     }
@@ -4171,7 +4212,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_3_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_3_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_3_H");
 
         throw new NotImplementedException("SET_3_H");
     }
@@ -4190,7 +4231,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_3_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_3_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_3_L");
 
         throw new NotImplementedException("SET_3_L");
     }
@@ -4208,7 +4249,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_3_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_3_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_3_iHL");
 
         throw new NotImplementedException("SET_3_iHL");
     }
@@ -4227,7 +4268,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_3_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_3_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_3_A");
 
         throw new NotImplementedException("SET_3_A");
     }
@@ -4246,7 +4287,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_4_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_4_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_4_B");
 
         throw new NotImplementedException("SET_4_B");
     }
@@ -4265,7 +4306,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_4_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_4_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_4_C");
 
         throw new NotImplementedException("SET_4_C");
     }
@@ -4284,7 +4325,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_4_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_4_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_4_D");
 
         throw new NotImplementedException("SET_4_D");
     }
@@ -4303,7 +4344,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_4_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_4_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_4_E");
 
         throw new NotImplementedException("SET_4_E");
     }
@@ -4322,7 +4363,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_4_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_4_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_4_H");
 
         throw new NotImplementedException("SET_4_H");
     }
@@ -4341,7 +4382,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_4_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_4_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_4_L");
 
         throw new NotImplementedException("SET_4_L");
     }
@@ -4359,7 +4400,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_4_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_4_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_4_iHL");
 
         throw new NotImplementedException("SET_4_iHL");
     }
@@ -4378,7 +4419,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_4_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_4_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_4_A");
 
         throw new NotImplementedException("SET_4_A");
     }
@@ -4397,7 +4438,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_5_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_5_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_5_B");
 
         throw new NotImplementedException("SET_5_B");
     }
@@ -4416,7 +4457,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_5_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_5_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_5_C");
 
         throw new NotImplementedException("SET_5_C");
     }
@@ -4435,7 +4476,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_5_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_5_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_5_D");
 
         throw new NotImplementedException("SET_5_D");
     }
@@ -4454,7 +4495,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_5_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_5_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_5_E");
 
         throw new NotImplementedException("SET_5_E");
     }
@@ -4473,7 +4514,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_5_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_5_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_5_H");
 
         throw new NotImplementedException("SET_5_H");
     }
@@ -4492,7 +4533,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_5_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_5_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_5_L");
 
         throw new NotImplementedException("SET_5_L");
     }
@@ -4510,7 +4551,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_5_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_5_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_5_iHL");
 
         throw new NotImplementedException("SET_5_iHL");
     }
@@ -4529,7 +4570,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_5_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_5_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_5_A");
 
         throw new NotImplementedException("SET_5_A");
     }
@@ -4548,7 +4589,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_6_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_6_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_6_B");
 
         throw new NotImplementedException("SET_6_B");
     }
@@ -4567,7 +4608,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_6_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_6_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_6_C");
 
         throw new NotImplementedException("SET_6_C");
     }
@@ -4586,7 +4627,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_6_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_6_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_6_D");
 
         throw new NotImplementedException("SET_6_D");
     }
@@ -4605,7 +4646,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_6_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_6_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_6_E");
 
         throw new NotImplementedException("SET_6_E");
     }
@@ -4624,7 +4665,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_6_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_6_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_6_H");
 
         throw new NotImplementedException("SET_6_H");
     }
@@ -4643,7 +4684,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_6_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_6_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_6_L");
 
         throw new NotImplementedException("SET_6_L");
     }
@@ -4661,7 +4702,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_6_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_6_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_6_iHL");
 
         throw new NotImplementedException("SET_6_iHL");
     }
@@ -4680,7 +4721,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_6_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_6_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_6_A");
 
         throw new NotImplementedException("SET_6_A");
     }
@@ -4699,7 +4740,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_7_B(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_7_B");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_7_B");
 
         throw new NotImplementedException("SET_7_B");
     }
@@ -4718,7 +4759,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_7_C(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_7_C");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_7_C");
 
         throw new NotImplementedException("SET_7_C");
     }
@@ -4737,7 +4778,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_7_D(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_7_D");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_7_D");
 
         throw new NotImplementedException("SET_7_D");
     }
@@ -4756,7 +4797,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_7_E(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_7_E");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_7_E");
 
         throw new NotImplementedException("SET_7_E");
     }
@@ -4775,7 +4816,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_7_H(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_7_H");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_7_H");
 
         throw new NotImplementedException("SET_7_H");
     }
@@ -4794,7 +4835,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_7_L(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_7_L");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_7_L");
 
         throw new NotImplementedException("SET_7_L");
     }
@@ -4812,7 +4853,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_7_iHL(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_7_iHL");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_7_iHL");
 
         throw new NotImplementedException("SET_7_iHL");
     }
@@ -4831,7 +4872,7 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int SET_7_A(CpuState cpuState, IGameBoy gb)
     {
-        gb.TraceCpuOp(cpuState.PC, "SET_7_A");
+        gb.TraceCpuOp(cpuState.PC - 1, "SET_7_A");
 
         throw new NotImplementedException("SET_7_A");
     }
