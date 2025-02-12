@@ -346,6 +346,8 @@ public class UnitTest1
     {
         private readonly byte[] _mem = new byte[0x1000];
 
+        public GameBoyCartridgeHeader? CartridgeHeader { get; }
+
         public void TraceCpuOp(int address, string op)
         {
         }

@@ -2,6 +2,7 @@ namespace gb;
 
 public interface IGameBoy
 {
+    GameBoyCartridgeHeader? CartridgeHeader { get; }
     void TraceCpuOp(int address, string op);
     void TraceCpuOp(int cpuStatePc, string op, sbyte imm);
     void TraceCpuOp(int cpuStatePc, string op, byte imm);

@@ -323,22 +323,20 @@ public class PPU
         return VRAM.AsSpan()[start..end];
     }
 
-    public byte[] GetBg0TileMap()
+    public Span<byte> GetBg0TileMap()
     {
-        var tileMap = new byte[32 * 32];
+        const int start = 0x1800;
+        const int end = start + 32 * 32;
 
-        for (var i = 0; i < 32 * 32; i++) tileMap[i] = VRAM[0x1800 + i];
-
-        return tileMap;
+        return VRAM.AsSpan()[start..end];
     }
 
-    public byte[] GetBg1TileMap()
+    public Span<byte> GetBg1TileMap()
     {
-        var tileMap = new byte[32 * 32];
+        const int start = 0x1C00;
+        const int end = start + 32 * 32;
 
-        for (var i = 0; i < 32 * 32; i++) tileMap[i] = VRAM[0x1C00 + i];
-
-        return tileMap;
+        return VRAM.AsSpan()[start..end];
     }
 
     public Span<byte> GetBgTile(byte tileIndex)

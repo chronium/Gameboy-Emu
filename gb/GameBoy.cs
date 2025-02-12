@@ -12,6 +12,8 @@ public class GameBoy : IGameBoy
 
     public PPU PPU { get; } = new();
 
+    public GameBoyCartridgeHeader? CartridgeHeader { get; private set; }
+
     public void TraceCpuOp(int address, string op)
     {
         // Console.WriteLine($"${address:X4}: {op}");
@@ -123,9 +125,10 @@ public class GameBoy : IGameBoy
         Memory.WriteBootRom(bootRom);
     }
 
-    public void LoadRom(ReadOnlySpan<byte> rom)
+    public void LoadRom(byte[] rom)
     {
         Memory.WriteRom(rom);
+        CartridgeHeader = GameBoyCartridgeHeader.FromBytes(rom[0x100..0x152]);
     }
 
     public void ResetNoBootRom(GameBoyCartridgeHeader header)

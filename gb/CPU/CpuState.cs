@@ -70,6 +70,8 @@ public class CpuState
 
     public void ImGuiRegistersDisplay()
     {
+        ImGui.Begin("Registers");
+
         ImGui.BeginTable("Registers", 4, ImGuiTableFlags.Borders | ImGuiTableFlags.NoHostExtendX);
 
         ImGui.TableSetupColumn("Reg", ImGuiTableColumnFlags.WidthFixed);
@@ -123,5 +125,6 @@ public class CpuState
         ImGui.Text($"${HL:X4}");
 
         ImGui.EndTable();
+        ImGui.End();
     }
 }
