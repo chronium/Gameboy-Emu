@@ -245,7 +245,7 @@ public class PPU
         switch (address)
         {
             case 0xFF40:
-                Console.WriteLine("LCDC: " + value);
+                Console.WriteLine($"LCDC: {value}");
                 LCDC = value;
                 break;
             case 0xFF41:
@@ -253,31 +253,31 @@ public class PPU
                 Console.WriteLine("TODO: Write to STAT");
                 break;
             case 0xFF42:
-                Console.WriteLine("SCY: " + value);
+                Console.WriteLine($"SCY: {value}");
                 SCY = value;
                 break;
             case 0xFF43:
-                Console.WriteLine("SCX: " + value);
+                Console.WriteLine($"SCX: {value}");
                 SCX = value;
                 break;
             case 0xFF47:
-                Console.WriteLine("BG Palette: " + value);
+                Console.WriteLine($"BG Palette: {value}");
                 Palette = value;
                 break;
             case 0xFF48:
-                Console.WriteLine("OBP0: " + value);
+                Console.WriteLine($"OBP0: {value}");
                 OBP0 = value;
                 break;
             case 0xFF49:
-                Console.WriteLine("OBP1: " + value);
+                Console.WriteLine($"OBP1: {value}");
                 OBP1 = value;
                 break;
             case 0xFF4A:
-                Console.WriteLine("WY: " + value);
+                Console.WriteLine($"WY: {value}");
                 WY = value;
                 break;
             case 0xFF4B:
-                Console.WriteLine("WX: " + value);
+                Console.WriteLine($"WX: {value}");
                 WX = value;
                 break;
             default:
@@ -289,6 +289,8 @@ public class PPU
     {
         return address switch
         {
+            0xFF42 => SCY,
+            0xFF43 => SCX,
             0xFF44 => (byte)LY,
             _ => throw new NotImplementedException($"Read from PPU address {address:X4} not implemented"),
         };

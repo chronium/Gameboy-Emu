@@ -22,6 +22,8 @@ public partial class Application
 
     private readonly HashSet<Breakpoint> _breakpoints = [];
 
+    private readonly Data _data = new("gbemu");
+
     private readonly GameBoy _gameBoy = new();
     private SdlTexture _bg0Texture;
     private SdlTexture _bg1Texture;
@@ -67,7 +69,7 @@ public partial class Application
 
         InitImGui();
 
-        LoadBootRom();
+        // LoadBootRom();
 
         if (!string.IsNullOrEmpty(romPath)) LoadRom(romPath);
 
@@ -117,7 +119,7 @@ public partial class Application
         ImGui_SDL3.ImGui_ImplSDL3_NewFrame();
         ImGui.NewFrame();
 
-        GlobalMenu();
+        GlobalMenu(_data);
         Debugger();
         MemoryWindow();
         _gameBoy.CpuState.ImGuiRegistersDisplay();
@@ -133,13 +135,17 @@ public partial class Application
 
             while (cyclesToEmulate > 0)
             {
+                var broken = false;
                 foreach (var breakpoint in _breakpoints)
                 {
                     if (breakpoint.Address != _gameBoy.CpuState.PC) continue;
 
                     _runningMode = EmulatorRunningMode.Stopped;
+                    broken = true;
                     break;
                 }
+
+                if (broken) break;
 
                 var cycles = _gameBoy.Step();
                 cyclesToEmulate -= cycles;
@@ -214,9 +220,12 @@ public partial class Application
 
     private void LoadRom(string romPath)
     {
+        _data.AddRecentRomPath(romPath);
+
         var rom = File.ReadAllBytes(romPath);
 
         _gameBoy.LoadRom(rom);
+        _gameBoy.ResetNoBootRom(_gameBoy.CartridgeHeader.Value);
         SDL_SetWindowTitle(_window, $"{_gameBoy.CartridgeHeader?.GetTitle() ?? "GB Emu"}");
     }
 

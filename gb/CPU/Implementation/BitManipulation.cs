@@ -1102,7 +1102,20 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SRL_B");
 
-        throw new NotImplementedException("SRL_B");
+        var value = cpuState.B;
+        var carry = (value & 0x01) != 0; // Check if bit 0 is set
+
+        cpuState.B = (byte)(value >> 1); // Shift right
+
+        // Set flags
+        cpuState.F = 0;
+        if (cpuState.B == 0)
+            cpuState.F |= Flags.Zero;
+
+        if (carry)
+            cpuState.F |= Flags.Carry;
+
+        return 8; // This instruction takes 8 cycles
     }
 
     /// <summary>

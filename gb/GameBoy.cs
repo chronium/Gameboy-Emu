@@ -6,8 +6,6 @@ public class GameBoy : IGameBoy
 {
     public readonly CpuState CpuState = new();
 
-    // public CPU2 Cpu = new();
-
     public Memory Memory { get; } = new();
 
     public PPU PPU { get; } = new();
@@ -16,27 +14,27 @@ public class GameBoy : IGameBoy
 
     public void TraceCpuOp(int address, string op)
     {
-        // Console.WriteLine($"${address:X4}: {op}");
+        Console.WriteLine($"${address:X4}: {op}");
     }
 
     public void TraceCpuOp(int cpuStatePc, string op, sbyte imm)
     {
-        // Console.WriteLine($"${cpuStatePc:X4}: {op} ${imm:X2}");
+        Console.WriteLine($"${cpuStatePc:X4}: {op} ${imm:X2}");
     }
 
     public void TraceCpuOp(int cpuStatePc, string op, byte imm)
     {
-        // Console.WriteLine($"${cpuStatePc:X4}: {op} ${imm:X2}");
+        Console.WriteLine($"${cpuStatePc:X4}: {op} ${imm:X2}");
     }
 
     public void TraceCpuOp(int cpuStatePc, string op, ushort imm)
     {
-        // Console.WriteLine($"${cpuStatePc:X4}: {op} ${imm:X4}");
+        Console.WriteLine($"${cpuStatePc:X4}: {op} ${imm:X4}");
     }
 
     public void TraceCpuOp(int cpuStatePc, string op, short imm)
     {
-        // Console.WriteLine($"${cpuStatePc:X4}: {op} ${imm:X4}");
+        Console.WriteLine($"${cpuStatePc:X4}: {op} ${imm:X4}");
     }
 
     public ushort ReadUShort(ushort address)
@@ -150,23 +148,8 @@ public class GameBoy : IGameBoy
         CpuState.L = 0x4D;
         CpuState.PC = 0x0100;
         CpuState.SP = 0xFFFE;
-        // Cpu.A = 0x01;
-        // Cpu.F = 0;
-        //
-        // if (header.HeaderChecksum == 0)
-        // {
-        //     Cpu.F |= Flags.HalfCarry;
-        //     Cpu.F |= Flags.Carry;
-        // }
-        //
-        // Cpu.B = 0;
-        // Cpu.C = 0x13;
-        // Cpu.D = 0;
-        // Cpu.E = 0xD8;
-        // Cpu.H = 0x01;
-        // Cpu.L = 0x4D;
-        // Cpu.PC = 0x0100;
-        // Cpu.SP = 0xFFFE;
+
+        Memory.BootRomEnabled = false;
     }
 
     public int Step()
@@ -183,6 +166,9 @@ public class GameBoy : IGameBoy
     {
         switch (address)
         {
+            case 0xff01:
+                throw new("Serial transfer not implemented");
+                break;
             case <= 0xFF3F:
                 Console.WriteLine($"Write {value:X4} to APU address {address:X4}");
                 break;

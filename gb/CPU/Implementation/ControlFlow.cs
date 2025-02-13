@@ -21,6 +21,8 @@ public static partial class Executioner
         var e8 = (sbyte)gb.ReadByte(cpuState.PC);
         gb.TraceCpuOp(cpuState.PC - 1, "JR_e8", e8);
 
+        cpuState.PC++;
+
         var addr = cpuState.PC + e8;
         cpuState.PC = (ushort)addr;
 
@@ -70,7 +72,7 @@ public static partial class Executioner
     internal static int JR_Z_e8(CpuState cpuState, IGameBoy gb)
     {
         var e8 = (sbyte)gb.ReadByte(cpuState.PC);
-        gb.TraceCpuOp(cpuState.PC - 1, "JR_Z_e8", e8);
+        gb.TraceCpuOp(cpuState.PC - 1, "JR_Z_e8", (byte)e8);
 
         cpuState.PC++;
 
@@ -215,8 +217,13 @@ public static partial class Executioner
 
         cpuState.PC += 2;
 
+        if (cpuState.F.HasFlag(Flags.Zero)) return 12;
 
-        throw new NotImplementedException("CALL_NZ_a16");
+        gb.Push(cpuState.PC);
+
+        cpuState.PC = a16;
+
+        return 24;
     }
 
     /// <summary>
@@ -254,7 +261,11 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RET_Z");
 
-        throw new NotImplementedException("RET_Z");
+        if (!cpuState.F.HasFlag(Flags.Zero)) return 8;
+
+        cpuState.PC = gb.Pop();
+
+        return 20;
     }
 
     /// <summary>
@@ -593,8 +604,6 @@ public static partial class Executioner
     internal static int JP_HL(CpuState cpuState, IGameBoy gb)
     {
         gb.TraceCpuOp(cpuState.PC - 1, "JP_HL");
-
-        throw new("");
 
         cpuState.PC = cpuState.HL;
 

@@ -8,7 +8,7 @@ using static SDL;
 
 public partial class Application
 {
-    private void GlobalMenu()
+    private void GlobalMenu(Data data)
     {
         if (ImGui.BeginMainMenuBar())
         {
@@ -19,6 +19,30 @@ public partial class Application
                     {
                         if (!string.IsNullOrEmpty(path)) LoadRom(path);
                     });
+
+                if (ImGui.BeginMenu("Recent ROMs"))
+                {
+                    var recentRoms = data.GetRecentRomPaths();
+                    foreach (var rom in recentRoms)
+                    {
+                        if (!ImGui.MenuItem(rom)) continue;
+
+                        LoadRom(rom);
+                        break;
+                    }
+
+                    if (recentRoms.Length == 0) ImGui.MenuItem("No recent ROMs");
+
+                    ImGui.Separator();
+
+                    if (ImGui.MenuItem("Clear"))
+                    {
+                        var recentRomsPath = Path.Combine(data.UserDataPath, "recent_roms.txt");
+                        File.Delete(recentRomsPath);
+                    }
+
+                    ImGui.EndMenu();
+                }
 
 
                 ImGui.EndMenu();

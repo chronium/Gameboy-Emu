@@ -387,7 +387,18 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "XOR_A_iHL");
 
-        throw new NotImplementedException("XOR_A_iHL");
+        var value = gb.ReadByte(cpuState.HL);
+
+        cpuState.F &= ~Flags.Zero;
+        cpuState.F &= ~Flags.Subtract;
+        cpuState.F &= ~Flags.HalfCarry;
+        cpuState.F &= ~Flags.Carry;
+
+        cpuState.A ^= value;
+
+        if (cpuState.A == 0) cpuState.F |= Flags.Zero;
+
+        return 8;
     }
 
     /// <summary>
