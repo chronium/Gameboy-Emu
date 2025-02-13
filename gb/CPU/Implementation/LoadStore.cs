@@ -44,7 +44,7 @@ public static partial class Executioner
         gb.TraceCpuOp(cpuState.PC - 1, "LD_iBC_A");
 
         gb.WriteByte(cpuState.BC, cpuState.A);
-        
+
         return 8;
     }
 
@@ -445,7 +445,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "LD_A_iHLD");
 
-        throw new NotImplementedException("LD_A_iHLD");
+        cpuState.A = gb.ReadByte(cpuState.HL--);
+
+        return 8;
     }
 
     /// <summary>
@@ -2076,9 +2078,20 @@ public static partial class Executioner
 
         cpuState.PC++;
 
+        var sp = cpuState.SP;
+        var result = sp + e8;
 
-        throw new NotImplementedException("LD_HL_SPI_e8");
+        cpuState.F = 0;
+        if ((sp & 0x0F) + (e8 & 0x0F) > 0x0F)
+            cpuState.F |= Flags.HalfCarry;
+        if ((sp & 0xFF) + (e8 & 0xFF) > 0xFF)
+            cpuState.F |= Flags.Carry;
+
+        cpuState.HL = (ushort)result;
+
+        return 12;
     }
+
 
     /// <summary>
     ///     0xF9 LD - 8 cycles

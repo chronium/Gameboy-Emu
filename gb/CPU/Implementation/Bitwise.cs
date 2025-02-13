@@ -160,7 +160,16 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "AND_A_D");
 
-        throw new NotImplementedException("AND_A_D");
+        cpuState.F &= ~Flags.Zero;
+        cpuState.F &= ~Flags.Negative;
+        cpuState.F |= Flags.HalfCarry;
+        cpuState.F &= ~Flags.Carry;
+
+        cpuState.A &= cpuState.D;
+
+        if (cpuState.A == 0) cpuState.F |= Flags.Zero;
+
+        return 4;
     }
 
     /// <summary>
@@ -179,7 +188,16 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "AND_A_E");
 
-        throw new NotImplementedException("AND_A_E");
+        cpuState.F &= ~Flags.Zero;
+        cpuState.F &= ~Flags.Negative;
+        cpuState.F |= Flags.HalfCarry;
+        cpuState.F &= ~Flags.Carry;
+
+        cpuState.A &= cpuState.E;
+
+        if (cpuState.A == 0) cpuState.F |= Flags.Zero;
+
+        return 4;
     }
 
     /// <summary>
@@ -198,7 +216,16 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "AND_A_H");
 
-        throw new NotImplementedException("AND_A_H");
+        cpuState.F &= ~Flags.Zero;
+        cpuState.F &= ~Flags.Negative;
+        cpuState.F |= Flags.HalfCarry;
+        cpuState.F &= ~Flags.Carry;
+
+        cpuState.A &= cpuState.H;
+
+        if (cpuState.A == 0) cpuState.F |= Flags.Zero;
+
+        return 4;
     }
 
     /// <summary>
@@ -217,7 +244,16 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "AND_A_L");
 
-        throw new NotImplementedException("AND_A_L");
+        cpuState.F &= ~Flags.Zero;
+        cpuState.F &= ~Flags.Negative;
+        cpuState.F |= Flags.HalfCarry;
+        cpuState.F &= ~Flags.Carry;
+
+        cpuState.A &= cpuState.L;
+
+        if (cpuState.A == 0) cpuState.F |= Flags.Zero;
+
+        return 4;
     }
 
     /// <summary>
@@ -235,7 +271,18 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "AND_A_iHL");
 
-        throw new NotImplementedException("AND_A_iHL");
+        cpuState.F &= ~Flags.Zero;
+        cpuState.F &= ~Flags.Negative;
+        cpuState.F |= Flags.HalfCarry;
+        cpuState.F &= ~Flags.Carry;
+
+        var value = gb.ReadByte(cpuState.HL);
+
+        cpuState.A &= value;
+
+        if (cpuState.A == 0) cpuState.F |= Flags.Zero;
+
+        return 8;
     }
 
     /// <summary>

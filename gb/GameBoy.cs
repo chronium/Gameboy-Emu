@@ -16,27 +16,27 @@ public class GameBoy : IGameBoy
 
     public void TraceCpuOp(int address, string op)
     {
-        Console.WriteLine($"${address:X4}: {op}");
+        // Console.WriteLine("{0:X4}: {1}", address, op);
     }
 
     public void TraceCpuOp(int cpuStatePc, string op, sbyte imm)
     {
-        Console.WriteLine($"${cpuStatePc:X4}: {op} ${imm:X2}");
+        // Console.WriteLine($"${cpuStatePc:X4}: {op} ${imm:X2}");
     }
 
     public void TraceCpuOp(int cpuStatePc, string op, byte imm)
     {
-        Console.WriteLine($"${cpuStatePc:X4}: {op} ${imm:X2}");
+        // Console.WriteLine($"${cpuStatePc:X4}: {op} ${imm:X2}");
     }
 
     public void TraceCpuOp(int cpuStatePc, string op, ushort imm)
     {
-        Console.WriteLine($"${cpuStatePc:X4}: {op} ${imm:X4}");
+        // Console.WriteLine($"${cpuStatePc:X4}: {op} ${imm:X4}");
     }
 
     public void TraceCpuOp(int cpuStatePc, string op, short imm)
     {
-        Console.WriteLine($"${cpuStatePc:X4}: {op} ${imm:X4}");
+        // Console.WriteLine($"${cpuStatePc:X4}: {op} ${imm:X4}");
     }
 
     public ushort ReadUShort(ushort address)
