@@ -702,6 +702,34 @@ public class UnitTest1
         Assert.Equal(expectedA, cpu.A);
         Assert.Equal(expectedFlags, cpu.F);
     }
+    
+    [Theory]
+    [InlineData(0x15, (Flags)0, 0x15, (Flags)0)]                                   // 0x15, no correction.
+    [InlineData(0x0A, Flags.HalfCarry, 0x10, (Flags)0)]                           // 0x0A + 0x06 = 0x10.
+    [InlineData(0x9A, Flags.Carry, 0x00, Flags.Carry | Flags.Zero)]               // 0x9A + 0x60 + 0x06 = 0x100 → 0x00, carry & zero.
+    [InlineData(0x95, Flags.HalfCarry | Flags.Negative, 0x8F, Flags.Negative)]      // Subtraction: 0x95 - 0x06 = 0x8F.
+    [InlineData(0x66, (Flags)0, 0x66, (Flags)0)]                                   // No correction.
+    [InlineData(0x99, Flags.Carry, 0xF9, Flags.Carry)]                            // 0x99 + 0x60 = 0xF9.
+    [InlineData(0x99, (Flags)0, 0x99, (Flags)0)]                                   // 0x99 remains 0x99.
+    [InlineData(0xFF, Flags.Carry, 0x65, Flags.Carry)]                            // 0xFF + 0x60 + 0x06 = 0x165 → 0x65.
+    [InlineData(0xFF, (Flags)0, 0x65, Flags.Carry)]                               // 0xFF > 0x99, so correction applies, result 0x65 & carry set.
+    [InlineData(0x05, Flags.HalfCarry, 0x0B, (Flags)0)]                           // 0x05 + 0x06 = 0x0B.
+    [InlineData(0xFA, Flags.Carry | Flags.Negative, 0x9A, Flags.Carry | Flags.Negative)] // Subtraction: 0xFA - 0x60 = 0x9A.
+    [InlineData(0x9B, Flags.Negative, 0x9B, Flags.Negative)]                      // No correction.
+    public void DAA(byte initialA, Flags initialFlags, byte expectedA, Flags expectedFlags)
+    {
+        var cpu = new CpuState
+        {
+            A = initialA,
+            F = initialFlags
+        };
+
+        Executioner.DAA(cpu, new GBMock());
+
+        Assert.Equal(expectedA, cpu.A);
+        Assert.Equal(expectedFlags, cpu.F);
+    }
+
 
     private class GBMock : IGameBoy
     {
