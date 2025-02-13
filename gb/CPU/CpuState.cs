@@ -70,61 +70,63 @@ public class CpuState
 
     public void ImGuiRegistersDisplay()
     {
-        ImGui.Begin("Registers");
+        if (ImGui.Begin("Registers"))
+        {
+            ImGui.BeginTable("Registers", 4, ImGuiTableFlags.Borders | ImGuiTableFlags.NoHostExtendX);
 
-        ImGui.BeginTable("Registers", 4, ImGuiTableFlags.Borders | ImGuiTableFlags.NoHostExtendX);
+            ImGui.TableSetupColumn("Reg", ImGuiTableColumnFlags.WidthFixed);
+            ImGui.TableSetupColumn("Val", ImGuiTableColumnFlags.WidthFixed);
+            ImGui.TableSetupColumn("Reg", ImGuiTableColumnFlags.WidthFixed);
+            ImGui.TableSetupColumn("Val", ImGuiTableColumnFlags.WidthFixed);
 
-        ImGui.TableSetupColumn("Reg", ImGuiTableColumnFlags.WidthFixed);
-        ImGui.TableSetupColumn("Val", ImGuiTableColumnFlags.WidthFixed);
-        ImGui.TableSetupColumn("Reg", ImGuiTableColumnFlags.WidthFixed);
-        ImGui.TableSetupColumn("Val", ImGuiTableColumnFlags.WidthFixed);
+            ImGui.TableHeadersRow();
 
-        ImGui.TableHeadersRow();
+            ImGui.TableNextColumn();
+            ImGui.Text("PC");
+            ImGui.TableNextColumn();
+            ImGui.Text($"${PC:X4}");
+            ImGui.TableNextColumn();
+            ImGui.Text("A");
+            ImGui.TableNextColumn();
+            ImGui.Text($"${A:X2}");
 
-        ImGui.TableNextColumn();
-        ImGui.Text("PC");
-        ImGui.TableNextColumn();
-        ImGui.Text($"${PC:X4}");
-        ImGui.TableNextColumn();
-        ImGui.Text("A");
-        ImGui.TableNextColumn();
-        ImGui.Text($"${A:X2}");
+            ImGui.TableNextRow();
 
-        ImGui.TableNextRow();
+            ImGui.TableNextColumn();
+            ImGui.Text("SP");
+            ImGui.TableNextColumn();
+            ImGui.Text($"${SP:X4}");
+            ImGui.TableNextColumn();
+            ImGui.Text("BC");
+            ImGui.TableNextColumn();
+            ImGui.Text($"${BC:X4}");
 
-        ImGui.TableNextColumn();
-        ImGui.Text("SP");
-        ImGui.TableNextColumn();
-        ImGui.Text($"${SP:X4}");
-        ImGui.TableNextColumn();
-        ImGui.Text("BC");
-        ImGui.TableNextColumn();
-        ImGui.Text($"${BC:X4}");
+            ImGui.TableNextRow();
 
-        ImGui.TableNextRow();
+            var flags = string.Join(" ", F.HasFlag(Flags.Zero) ? "Z" : " ", F.HasFlag(Flags.Carry) ? "C" : " ",
+                F.HasFlag(Flags.HalfCarry) ? "H" : " ", F.HasFlag(Flags.Negative) ? "N" : " ");
 
-        var flags = string.Join(" ", F.HasFlag(Flags.Zero) ? "Z" : " ", F.HasFlag(Flags.Carry) ? "C" : " ",
-            F.HasFlag(Flags.HalfCarry) ? "H" : " ", F.HasFlag(Flags.Negative) ? "N" : " ");
+            ImGui.TableNextColumn();
+            ImGui.Text("F");
+            ImGui.TableNextColumn();
+            ImGui.Text($"{flags}");
+            ImGui.TableNextColumn();
+            ImGui.Text("DE");
+            ImGui.TableNextColumn();
+            ImGui.Text($"${DE:X4}");
 
-        ImGui.TableNextColumn();
-        ImGui.Text("F");
-        ImGui.TableNextColumn();
-        ImGui.Text($"{flags}");
-        ImGui.TableNextColumn();
-        ImGui.Text("DE");
-        ImGui.TableNextColumn();
-        ImGui.Text($"${DE:X4}");
+            ImGui.TableNextRow();
 
-        ImGui.TableNextRow();
+            ImGui.TableNextColumn();
+            ImGui.TableNextColumn();
+            ImGui.TableNextColumn();
+            ImGui.Text("HL");
+            ImGui.TableNextColumn();
+            ImGui.Text($"${HL:X4}");
 
-        ImGui.TableNextColumn();
-        ImGui.TableNextColumn();
-        ImGui.TableNextColumn();
-        ImGui.Text("HL");
-        ImGui.TableNextColumn();
-        ImGui.Text($"${HL:X4}");
+            ImGui.EndTable();
+        }
 
-        ImGui.EndTable();
         ImGui.End();
     }
 }

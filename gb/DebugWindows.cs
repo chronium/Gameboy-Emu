@@ -125,9 +125,9 @@ public partial class Application
                 ImGui.Columns(1);
                 ImGui.Separator();
             }
-
-            ImGui.End();
         }
+
+        ImGui.End();
     }
 
     private void MemoryWindow()

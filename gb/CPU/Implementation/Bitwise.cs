@@ -20,8 +20,16 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RLCA");
 
-        throw new NotImplementedException("RLCA");
+        var value = cpuState.A;
+        var carryOut = (value & 0x80) != 0;
+
+        cpuState.A = (byte)((value << 1) | (carryOut ? 0x01 : 0x00));
+
+        cpuState.F = carryOut ? Flags.Carry : 0;
+
+        return 4;
     }
+
 
     /// <summary>
     ///     0x0F RRCA - 4 cycles
@@ -113,7 +121,16 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "AND_A_B");
 
-        throw new NotImplementedException("AND_A_B");
+        cpuState.F &= ~Flags.Zero;
+        cpuState.F &= ~Flags.Negative;
+        cpuState.F |= Flags.HalfCarry;
+        cpuState.F &= ~Flags.Carry;
+
+        cpuState.A &= cpuState.B;
+
+        if (cpuState.A == 0) cpuState.F |= Flags.Zero;
+
+        return 4;
     }
 
     /// <summary>
@@ -301,7 +318,16 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "AND_A_A");
 
-        throw new NotImplementedException("AND_A_A");
+        cpuState.F &= ~Flags.Zero;
+        cpuState.F &= ~Flags.Negative;
+        cpuState.F |= Flags.HalfCarry;
+        cpuState.F &= ~Flags.Carry;
+
+        cpuState.A &= cpuState.A;
+
+        if (cpuState.A == 0) cpuState.F |= Flags.Zero;
+
+        return 4;
     }
 
     /// <summary>

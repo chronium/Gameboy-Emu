@@ -683,6 +683,26 @@ public class UnitTest1
         Assert.Equal(expectedFlags, cpu.F);
     }
 
+    [Theory]
+    [InlineData(0x02, (Flags)0, 0x04)] // 0x02 << 1 = 0x04, no carry
+    [InlineData(0x80, Flags.Carry, 0x01)] // 0x80 << 1 with rotation = 0x01, Carry set
+    [InlineData(0xFF, Flags.Carry, 0xFF)] // 0xFF << 1 with rotation = 0xFF, Carry set
+    [InlineData(0x01, (Flags)0, 0x02)] // 0x01 << 1 = 0x02, no carry
+    [InlineData(0x00, (Flags)0, 0x00)] // 0x00 << 1 = 0x00, no carry
+    public void RLCA(byte initialA, Flags expectedFlags, byte expectedA)
+    {
+        var cpu = new CpuState
+        {
+            A = initialA,
+            F = 0,
+        };
+
+        Executioner.RLCA(cpu, new GBMock());
+
+        Assert.Equal(expectedA, cpu.A);
+        Assert.Equal(expectedFlags, cpu.F);
+    }
+
     private class GBMock : IGameBoy
     {
         private readonly byte[] _mem = new byte[0x2000];

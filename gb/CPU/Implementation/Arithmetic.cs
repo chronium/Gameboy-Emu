@@ -107,7 +107,25 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "ADD_HL_BC");
 
-        throw new NotImplementedException("ADD_HL_BC");
+        cpuState.F &= ~Flags.Negative;
+
+        if ((cpuState.HL & 0x0FFF) + (cpuState.BC & 0x0FFF) > 0x0FFF)
+            cpuState.F |= Flags.HalfCarry;
+        else
+            cpuState.F &= ~Flags.HalfCarry;
+
+        if (cpuState.HL + cpuState.BC > 0xFFFF)
+        {
+            cpuState.F |= Flags.Carry;
+            cpuState.HL = (ushort)(cpuState.HL + cpuState.BC - 0x10000);
+        }
+        else
+        {
+            cpuState.F &= ~Flags.Carry;
+            cpuState.HL += cpuState.BC;
+        }
+
+        return 8;
     }
 
     /// <summary>
@@ -337,7 +355,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "DEC_DE");
 
-        throw new NotImplementedException("DEC_DE");
+        cpuState.DE--;
+        
+        return 8;
     }
 
     /// <summary>
@@ -565,7 +585,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "DEC_HL");
 
-        throw new NotImplementedException("DEC_HL");
+        cpuState.HL--;
+        
+        return 8;
     }
 
     /// <summary>
