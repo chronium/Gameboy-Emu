@@ -2015,7 +2015,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "POP_AF");
 
-        cpuState.AF = gb.Pop();
+        var value = gb.Pop();
+        
+        cpuState.AF = (ushort)(value & 0xFFF0);
 
         return 12;
     }
@@ -2035,7 +2037,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "LDH_A_iC");
 
-        throw new NotImplementedException("LDH_A_iC");
+        cpuState.A = gb.ReadByte((ushort)(0xFF00 + cpuState.C));
+        
+        return 8;
     }
 
     /// <summary>
