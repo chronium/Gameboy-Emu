@@ -48,7 +48,7 @@ public static partial class Executioner
 
         cpuState.B++;
 
-        cpuState.F &= ~Flags.Subtract;
+        cpuState.F &= ~Flags.Negative;
 
         if (cpuState.B == 0)
             cpuState.F |= Flags.Zero;
@@ -81,7 +81,7 @@ public static partial class Executioner
 
         cpuState.B--;
 
-        cpuState.F |= Flags.Subtract;
+        cpuState.F |= Flags.Negative;
 
         if (cpuState.B == 0)
             cpuState.F |= Flags.Zero;
@@ -154,7 +154,7 @@ public static partial class Executioner
 
         cpuState.C++;
 
-        cpuState.F &= ~Flags.Subtract;
+        cpuState.F &= ~Flags.Negative;
 
         if (cpuState.C == 0)
             cpuState.F |= Flags.Zero;
@@ -187,7 +187,7 @@ public static partial class Executioner
 
         cpuState.C--;
 
-        cpuState.F |= Flags.Subtract;
+        cpuState.F |= Flags.Negative;
 
         if (cpuState.C == 0)
             cpuState.F |= Flags.Zero;
@@ -241,7 +241,7 @@ public static partial class Executioner
 
         cpuState.D++;
 
-        cpuState.F &= ~Flags.Subtract;
+        cpuState.F &= ~Flags.Negative;
 
         if (cpuState.D == 0)
             cpuState.F |= Flags.Zero;
@@ -274,7 +274,7 @@ public static partial class Executioner
 
         cpuState.D--;
 
-        cpuState.F |= Flags.Subtract;
+        cpuState.F |= Flags.Negative;
 
         if (cpuState.D == 0)
             cpuState.F |= Flags.Zero;
@@ -300,7 +300,7 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "ADD_HL_DE");
 
-        cpuState.F &= ~Flags.Subtract;
+        cpuState.F &= ~Flags.Negative;
 
         if ((cpuState.HL & 0x0FFF) + (cpuState.DE & 0x0FFF) > 0x0FFF)
             cpuState.F |= Flags.HalfCarry;
@@ -363,7 +363,7 @@ public static partial class Executioner
 
         cpuState.E++;
 
-        cpuState.F &= ~Flags.Subtract;
+        cpuState.F &= ~Flags.Negative;
 
         if (cpuState.E == 0)
             cpuState.F |= Flags.Zero;
@@ -396,7 +396,7 @@ public static partial class Executioner
 
         cpuState.E--;
 
-        cpuState.F |= Flags.Subtract;
+        cpuState.F |= Flags.Negative;
 
         if (cpuState.E == 0)
             cpuState.F |= Flags.Zero;
@@ -450,7 +450,7 @@ public static partial class Executioner
 
         cpuState.H++;
 
-        cpuState.F &= ~Flags.Subtract;
+        cpuState.F &= ~Flags.Negative;
 
         if (cpuState.H == 0)
             cpuState.F |= Flags.Zero;
@@ -476,7 +476,21 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "DEC_H");
 
-        throw new NotImplementedException("DEC_H");
+        if ((cpuState.H & 0x0F) == 0)
+            cpuState.F |= Flags.HalfCarry;
+        else
+            cpuState.F &= ~Flags.HalfCarry;
+
+        cpuState.H--;
+
+        cpuState.F |= Flags.Negative;
+
+        if (cpuState.H == 0)
+            cpuState.F |= Flags.Zero;
+        else
+            cpuState.F &= ~Flags.Zero;
+
+        return 4;
     }
 
     /// <summary>
@@ -514,7 +528,25 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "ADD_HL_HL");
 
-        throw new NotImplementedException("ADD_HL_HL");
+        cpuState.F &= ~Flags.Negative;
+
+        if ((cpuState.HL & 0x0FFF) + (cpuState.HL & 0x0FFF) > 0x0FFF)
+            cpuState.F |= Flags.HalfCarry;
+        else
+            cpuState.F &= ~Flags.HalfCarry;
+
+        if (cpuState.HL + cpuState.HL > 0xFFFF)
+        {
+            cpuState.F |= Flags.Carry;
+            cpuState.HL = (ushort)(cpuState.HL + cpuState.HL - 0x10000);
+        }
+        else
+        {
+            cpuState.F &= ~Flags.Carry;
+            cpuState.HL += cpuState.HL;
+        }
+
+        return 8;
     }
 
     /// <summary>
@@ -559,7 +591,7 @@ public static partial class Executioner
 
         cpuState.L++;
 
-        cpuState.F &= ~Flags.Subtract;
+        cpuState.F &= ~Flags.Negative;
 
         if (cpuState.L == 0)
             cpuState.F |= Flags.Zero;
@@ -592,7 +624,7 @@ public static partial class Executioner
 
         cpuState.L--;
 
-        cpuState.F |= Flags.Subtract;
+        cpuState.F |= Flags.Negative;
 
         if (cpuState.L == 0)
             cpuState.F |= Flags.Zero;
@@ -618,7 +650,7 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "CPL");
 
-        cpuState.F |= Flags.Subtract;
+        cpuState.F |= Flags.Negative;
         cpuState.F |= Flags.HalfCarry;
 
         cpuState.A = (byte)~cpuState.A;
@@ -678,7 +710,23 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "DEC_iHL");
 
-        throw new NotImplementedException("DEC_iHL");
+        var address = cpuState.HL;
+        var value = gb.ReadByte(address);
+        var result = (byte)(value - 1);
+
+        // Set flags
+        cpuState.F &= Flags.Carry; // Preserve Carry flag
+        cpuState.F |= Flags.Negative; // Always set Negative flag
+
+        if (result == 0)
+            cpuState.F |= Flags.Zero;
+
+        if ((value & 0x0F) == 0) // If lower nibble was 0, Half-Carry is set (borrow from bit 4)
+            cpuState.F |= Flags.HalfCarry;
+
+        gb.WriteByte(address, result);
+
+        return 12; // This instruction takes 12 cycles
     }
 
     /// <summary>
@@ -742,7 +790,7 @@ public static partial class Executioner
 
         cpuState.A++;
 
-        cpuState.F &= ~Flags.Subtract;
+        cpuState.F &= ~Flags.Negative;
 
         if (cpuState.A == 0)
             cpuState.F |= Flags.Zero;
@@ -775,7 +823,7 @@ public static partial class Executioner
 
         cpuState.A--;
 
-        cpuState.F |= Flags.Subtract;
+        cpuState.F |= Flags.Negative;
 
         if (cpuState.A == 0)
             cpuState.F |= Flags.Zero;
@@ -940,7 +988,7 @@ public static partial class Executioner
         else
             cpuState.F &= ~Flags.Zero;
 
-        cpuState.F &= ~Flags.Subtract;
+        cpuState.F &= ~Flags.Negative;
 
         if ((cpuState.A & 0xF) + (cpuState.A & 0xF) > 0xF)
             cpuState.F |= Flags.HalfCarry;
@@ -1128,7 +1176,7 @@ public static partial class Executioner
         var result = cpuState.A - value;
 
         // Set flags
-        cpuState.F = Flags.Subtract; // Subtraction always sets the Negative flag
+        cpuState.F = Flags.Negative; // Subtraction always sets the Negative flag
 
         if ((result & 0xFF) == 0) // Check if result is zero
             cpuState.F |= Flags.Zero;
@@ -1605,7 +1653,7 @@ public static partial class Executioner
         else
             cpuState.F &= ~Flags.Zero;
 
-        cpuState.F &= ~Flags.Subtract;
+        cpuState.F &= ~Flags.Negative;
 
         if ((cpuState.A & 0xF) + (n8 & 0xF) > 0xF)
             cpuState.F |= Flags.HalfCarry;
@@ -1636,13 +1684,27 @@ public static partial class Executioner
     /// <returns>The number of cycles taken</returns>
     internal static int ADC_A_n8(CpuState cpuState, IGameBoy gb)
     {
-        var n8 = gb.ReadByte(cpuState.PC);
+        var n8 = gb.ReadByte(cpuState.PC); // Read immediate 8-bit value
         gb.TraceCpuOp(cpuState.PC - 1, "ADC_A_n8", n8);
+        cpuState.PC++; // Increment PC to point after the immediate value
 
-        cpuState.PC++;
+        var carry = (cpuState.F & Flags.Carry) != 0 ? 1 : 0;
+        var result = cpuState.A + n8 + carry;
 
+        // Set flags
+        cpuState.F = 0;
+        if ((result & 0xFF) == 0) // If result is zero, set Zero flag
+            cpuState.F |= Flags.Zero;
 
-        throw new NotImplementedException("ADC_A_n8");
+        if ((cpuState.A & 0x0F) + (n8 & 0x0F) + carry > 0x0F) // Half-carry condition
+            cpuState.F |= Flags.HalfCarry;
+
+        if (result > 0xFF) // Overflow, set Carry flag
+            cpuState.F |= Flags.Carry;
+
+        cpuState.A = (byte)result; // Store result in A (8-bit wrap-around)
+
+        return 8; // This instruction takes 8 cycles
     }
 
     /// <summary>
@@ -1667,7 +1729,7 @@ public static partial class Executioner
         var result = cpuState.A - n8;
 
         // Set flags
-        cpuState.F = Flags.Subtract; // Subtraction always sets the Negative flag
+        cpuState.F = Flags.Negative; // Subtraction always sets the Negative flag
 
         if ((result & 0xFF) == 0) // Check if result is zero
             cpuState.F |= Flags.Zero;
@@ -1754,7 +1816,7 @@ public static partial class Executioner
         else
             cpuState.F &= ~Flags.Zero;
 
-        cpuState.F |= Flags.Subtract;
+        cpuState.F |= Flags.Negative;
 
         if ((cpuState.A & 0x0F) < (n8 & 0x0F))
             cpuState.F |= Flags.HalfCarry;

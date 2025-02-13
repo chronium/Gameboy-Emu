@@ -117,7 +117,7 @@ public class CPU2
                 else
                     F &= ~Flags.Zero;
 
-                F &= ~Flags.Subtract;
+                F &= ~Flags.Negative;
                 F |= Flags.HalfCarry;
 
                 PC += 1;
@@ -252,7 +252,7 @@ public class CPU2
             else
                 F &= ~Flags.Zero;
 
-            F |= Flags.Subtract;
+            F |= Flags.Negative;
 
             WriteR8(r8, value);
 
@@ -281,7 +281,7 @@ public class CPU2
             else
                 F &= ~Flags.Zero;
 
-            F |= Flags.Subtract;
+            F |= Flags.Negative;
 
             if ((value & 0x0F) < (imm8 & 0x0F))
                 F |= Flags.HalfCarry;
@@ -377,7 +377,7 @@ public class CPU2
             else
                 F &= ~Flags.Zero;
 
-            F &= ~Flags.Subtract;
+            F &= ~Flags.Negative;
 
             PC += 1;
         }

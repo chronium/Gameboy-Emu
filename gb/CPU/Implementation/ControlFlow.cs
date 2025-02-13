@@ -104,8 +104,13 @@ public static partial class Executioner
 
         cpuState.PC++;
 
+        if (cpuState.F.HasFlag(Flags.Carry)) return 8;
 
-        throw new NotImplementedException("JR_NC_e8");
+        var addr = cpuState.PC + e8;
+
+        cpuState.PC = (ushort)addr;
+
+        return 12;
     }
 
     /// <summary>
@@ -127,8 +132,13 @@ public static partial class Executioner
 
         cpuState.PC++;
 
+        if (!cpuState.F.HasFlag(Flags.Carry)) return 8;
 
-        throw new NotImplementedException("JR_C_e8");
+        var addr = cpuState.PC + e8;
+
+        cpuState.PC = (ushort)addr;
+
+        return 12;
     }
 
     /// <summary>
@@ -147,7 +157,11 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RET_NZ");
 
-        throw new NotImplementedException("RET_NZ");
+        if (cpuState.F.HasFlag(Flags.Zero)) return 8;
+
+        cpuState.PC = gb.Pop();
+
+        return 20;
     }
 
     /// <summary>
@@ -242,7 +256,11 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RST_0x00");
 
-        throw new NotImplementedException("RST_0x00");
+        gb.Push(cpuState.PC);
+
+        cpuState.PC = 0x00;
+
+        return 16;
     }
 
     /// <summary>
@@ -308,8 +326,11 @@ public static partial class Executioner
 
         cpuState.PC += 2;
 
+        if (!cpuState.F.HasFlag(Flags.Zero)) return 12;
 
-        throw new NotImplementedException("JP_Z_a16");
+        cpuState.PC = a16;
+
+        return 16;
     }
 
     /// <summary>
@@ -331,8 +352,13 @@ public static partial class Executioner
 
         cpuState.PC += 2;
 
+        if (!cpuState.F.HasFlag(Flags.Zero)) return 12;
 
-        throw new NotImplementedException("CALL_Z_a16");
+        gb.Push(cpuState.PC);
+
+        cpuState.PC = a16;
+
+        return 24;
     }
 
     /// <summary>
@@ -377,7 +403,11 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RST_0x08");
 
-        throw new NotImplementedException("RST_0x08");
+        gb.Push(cpuState.PC);
+
+        cpuState.PC = 0x08;
+
+        return 16;
     }
 
     /// <summary>
@@ -396,7 +426,11 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RET_NC");
 
-        throw new NotImplementedException("RET_NC");
+        if (cpuState.F.HasFlag(Flags.Carry)) return 8;
+
+        cpuState.PC = gb.Pop();
+
+        return 20;
     }
 
     /// <summary>
@@ -418,8 +452,11 @@ public static partial class Executioner
 
         cpuState.PC += 2;
 
+        if (cpuState.F.HasFlag(Flags.Carry)) return 12;
 
-        throw new NotImplementedException("JP_NC_a16");
+        cpuState.PC = a16;
+
+        return 16;
     }
 
     /// <summary>
@@ -441,8 +478,13 @@ public static partial class Executioner
 
         cpuState.PC += 2;
 
+        if (cpuState.F.HasFlag(Flags.Carry)) return 12;
 
-        throw new NotImplementedException("CALL_NC_a16");
+        gb.Push(cpuState.PC);
+
+        cpuState.PC = a16;
+
+        return 24;
     }
 
     /// <summary>
@@ -461,7 +503,11 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RST_0x10");
 
-        throw new NotImplementedException("RST_0x10");
+        gb.Push(cpuState.PC);
+
+        cpuState.PC = 0x10;
+
+        return 16;
     }
 
     /// <summary>
@@ -480,7 +526,11 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RET_C");
 
-        throw new NotImplementedException("RET_C");
+        if (!cpuState.F.HasFlag(Flags.Carry)) return 8;
+
+        cpuState.PC = gb.Pop();
+
+        return 20;
     }
 
     /// <summary>
@@ -499,7 +549,11 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RETI");
 
-        throw new NotImplementedException("RETI");
+        cpuState.PC = gb.Pop();
+
+        //TODO: Enable interrupts
+
+        return 16;
     }
 
     /// <summary>
@@ -547,8 +601,13 @@ public static partial class Executioner
 
         cpuState.PC += 2;
 
+        if (!cpuState.F.HasFlag(Flags.Carry)) return 12;
 
-        throw new NotImplementedException("CALL_C_a16");
+        gb.Push(cpuState.PC);
+
+        cpuState.PC = a16;
+
+        return 24;
     }
 
     /// <summary>
@@ -567,7 +626,11 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RST_0x18");
 
-        throw new NotImplementedException("RST_0x18");
+        gb.Push(cpuState.PC);
+
+        cpuState.PC = 0x18;
+
+        return 16;
     }
 
     /// <summary>
@@ -586,7 +649,11 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RST_0x20");
 
-        throw new NotImplementedException("RST_0x20");
+        gb.Push(cpuState.PC);
+
+        cpuState.PC = 0x20;
+
+        return 16;
     }
 
     /// <summary>
@@ -626,6 +693,8 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RST_0x28");
 
+        gb.Push(cpuState.PC);
+
         cpuState.PC = 0x28;
 
         return 16;
@@ -647,7 +716,11 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RST_0x30");
 
-        throw new NotImplementedException("RST_0x30");
+        gb.Push(cpuState.PC);
+
+        cpuState.PC = 0x30;
+
+        return 16;
     }
 
     /// <summary>
@@ -666,6 +739,10 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RST_0x38");
 
-        throw new NotImplementedException("RST_0x38");
+        gb.Push(cpuState.PC);
+
+        cpuState.PC = 0x38;
+
+        return 16;
     }
 }

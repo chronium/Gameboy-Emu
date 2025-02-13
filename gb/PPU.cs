@@ -289,6 +289,7 @@ public class PPU
     {
         return address switch
         {
+            0xFF40 => LCDC,
             0xFF42 => SCY,
             0xFF43 => SCX,
             0xFF44 => (byte)LY,

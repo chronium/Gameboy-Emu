@@ -510,7 +510,21 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RR_C");
 
-        throw new NotImplementedException("RR_C");
+        var value = cpuState.C;
+        var oldCarry = (cpuState.F & Flags.Carry) != 0; // Check if Carry is set
+        var newCarry = (value & 0x01) != 0; // Check if bit 0 is set
+
+        cpuState.C = (byte)((value >> 1) | (oldCarry ? 0x80 : 0x00)); // Rotate through Carry
+
+        // Set flags
+        cpuState.F = 0;
+        if (cpuState.C == 0)
+            cpuState.F |= Flags.Zero;
+
+        if (newCarry)
+            cpuState.F |= Flags.Carry;
+
+        return 8; // This instruction takes 8 cycles
     }
 
     /// <summary>
@@ -529,7 +543,21 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RR_D");
 
-        throw new NotImplementedException("RR_D");
+        var value = cpuState.D;
+        var oldCarry = (cpuState.F & Flags.Carry) != 0; // Check if Carry is set
+        var newCarry = (value & 0x01) != 0; // Check if bit 0 is set
+
+        cpuState.D = (byte)((value >> 1) | (oldCarry ? 0x80 : 0x00)); // Rotate through Carry
+
+        // Set flags
+        cpuState.F = 0;
+        if (cpuState.D == 0)
+            cpuState.F |= Flags.Zero;
+
+        if (newCarry)
+            cpuState.F |= Flags.Carry;
+
+        return 8; // This instruction takes 8 cycles
     }
 
     /// <summary>
@@ -548,7 +576,20 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RR_E");
 
-        throw new NotImplementedException("RR_E");
+        var value = cpuState.E;
+        var oldCarry = (cpuState.F & Flags.Carry) != 0;
+        var newCarry = (value & 0x01) != 0;
+
+        cpuState.E = (byte)((value >> 1) | (oldCarry ? 0x80 : 0x00));
+
+        cpuState.F = 0;
+        if (cpuState.E == 0)
+            cpuState.F |= Flags.Zero;
+
+        if (newCarry)
+            cpuState.F |= Flags.Carry;
+
+        return 8;
     }
 
     /// <summary>
@@ -2097,7 +2138,7 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "BIT_5_H");
 
-        cpuState.F &= ~Flags.Subtract;
+        cpuState.F &= ~Flags.Negative;
         cpuState.F |= Flags.HalfCarry;
 
         if ((cpuState.H & 0b00100000) != 0)
@@ -2407,7 +2448,7 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "BIT_7_H");
 
-        cpuState.F &= ~Flags.Subtract;
+        cpuState.F &= ~Flags.Negative;
         cpuState.F |= Flags.HalfCarry;
 
         if ((cpuState.H & 0b10000000) != 0)
@@ -2622,7 +2663,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_0_A");
 
-        throw new NotImplementedException("RES_0_A");
+        cpuState.A &= 0b11111110;
+
+        return 8;
     }
 
     /// <summary>

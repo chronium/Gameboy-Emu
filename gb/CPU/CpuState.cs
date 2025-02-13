@@ -104,7 +104,7 @@ public class CpuState
         ImGui.TableNextRow();
 
         var flags = string.Join(" ", F.HasFlag(Flags.Zero) ? "Z" : " ", F.HasFlag(Flags.Carry) ? "C" : " ",
-            F.HasFlag(Flags.HalfCarry) ? "H" : " ", F.HasFlag(Flags.Subtract) ? "N" : " ");
+            F.HasFlag(Flags.HalfCarry) ? "H" : " ", F.HasFlag(Flags.Negative) ? "N" : " ");
 
         ImGui.TableNextColumn();
         ImGui.Text("F");

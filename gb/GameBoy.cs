@@ -10,6 +10,8 @@ public class GameBoy : IGameBoy
 
     public PPU PPU { get; } = new();
 
+    public Action<byte>? OnSerialTransfer { get; set; }
+
     public GameBoyCartridgeHeader? CartridgeHeader { get; private set; }
 
     public void TraceCpuOp(int address, string op)
@@ -53,6 +55,7 @@ public class GameBoy : IGameBoy
             >= 0xfea0 and <= 0xfeff => 0,
             >= 0xff00 and <= 0xff7f => ReadMMIO(address),
             >= 0xff80 and <= 0xfffe => Memory.HRAM[address - 0xff80],
+            0xffff => 0, // TODO: IME
             _ => throw new NotImplementedException($"Read from address {address:X4} not implemented"),
         };
     }
@@ -167,7 +170,8 @@ public class GameBoy : IGameBoy
         switch (address)
         {
             case 0xff01:
-                throw new("Serial transfer not implemented");
+                OnSerialTransfer?.Invoke(value);
+                Console.WriteLine($"Serial transfer: {value:X4} {value:X2} '{(char)value}'");
                 break;
             case <= 0xFF3F:
                 Console.WriteLine($"Write {value:X4} to APU address {address:X4}");
@@ -272,7 +276,7 @@ public class Memory
 public enum Flags : byte
 {
     Zero = 0b1000_0000,
-    Subtract = 0b0100_0000,
+    Negative = 0b0100_0000,
     HalfCarry = 0b0010_0000,
     Carry = 0b0001_0000,
 }

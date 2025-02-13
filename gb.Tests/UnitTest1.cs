@@ -199,11 +199,11 @@ public class UnitTest1
     }
 
     [Theory]
-    [InlineData(0x10, Flags.Subtract | Flags.HalfCarry)]
-    [InlineData(0x20, Flags.Subtract | Flags.HalfCarry)]
-    [InlineData(0x01, Flags.Subtract | Flags.Zero)]
-    [InlineData(0x00, Flags.Subtract | Flags.HalfCarry)]
-    [InlineData(0xFF, Flags.Subtract)]
+    [InlineData(0x10, Flags.Negative | Flags.HalfCarry)]
+    [InlineData(0x20, Flags.Negative | Flags.HalfCarry)]
+    [InlineData(0x01, Flags.Negative | Flags.Zero)]
+    [InlineData(0x00, Flags.Negative | Flags.HalfCarry)]
+    [InlineData(0xFF, Flags.Negative)]
     public void DEC_C(byte value, Flags expected)
     {
         var cpu = new CpuState
@@ -220,11 +220,11 @@ public class UnitTest1
 
 
     [Theory]
-    [InlineData(0x10, Flags.Subtract | Flags.HalfCarry)]
-    [InlineData(0x20, Flags.Subtract | Flags.HalfCarry)]
-    [InlineData(0x01, Flags.Subtract | Flags.Zero)]
-    [InlineData(0x00, Flags.Subtract | Flags.HalfCarry)]
-    [InlineData(0xFF, Flags.Subtract)]
+    [InlineData(0x10, Flags.Negative | Flags.HalfCarry)]
+    [InlineData(0x20, Flags.Negative | Flags.HalfCarry)]
+    [InlineData(0x01, Flags.Negative | Flags.Zero)]
+    [InlineData(0x00, Flags.Negative | Flags.HalfCarry)]
+    [InlineData(0xFF, Flags.Negative)]
     public void DEC_A(byte value, Flags expected)
     {
         var cpu = new CpuState
@@ -240,11 +240,11 @@ public class UnitTest1
     }
 
     [Theory]
-    [InlineData(0x10, Flags.Subtract | Flags.HalfCarry)]
-    [InlineData(0x20, Flags.Subtract | Flags.HalfCarry)]
-    [InlineData(0x01, Flags.Subtract | Flags.Zero)]
-    [InlineData(0x00, Flags.Subtract | Flags.HalfCarry)]
-    [InlineData(0xFF, Flags.Subtract)]
+    [InlineData(0x10, Flags.Negative | Flags.HalfCarry)]
+    [InlineData(0x20, Flags.Negative | Flags.HalfCarry)]
+    [InlineData(0x01, Flags.Negative | Flags.Zero)]
+    [InlineData(0x00, Flags.Negative | Flags.HalfCarry)]
+    [InlineData(0xFF, Flags.Negative)]
     public void DEC_B(byte value, Flags expected)
     {
         var cpu = new CpuState
@@ -260,11 +260,11 @@ public class UnitTest1
     }
 
     [Theory]
-    [InlineData(0x10, Flags.Subtract | Flags.HalfCarry)]
-    [InlineData(0x20, Flags.Subtract | Flags.HalfCarry)]
-    [InlineData(0x01, Flags.Subtract | Flags.Zero)]
-    [InlineData(0x00, Flags.Subtract | Flags.HalfCarry)]
-    [InlineData(0xFF, Flags.Subtract)]
+    [InlineData(0x10, Flags.Negative | Flags.HalfCarry)]
+    [InlineData(0x20, Flags.Negative | Flags.HalfCarry)]
+    [InlineData(0x01, Flags.Negative | Flags.Zero)]
+    [InlineData(0x00, Flags.Negative | Flags.HalfCarry)]
+    [InlineData(0xFF, Flags.Negative)]
     public void DEC_D(byte value, Flags expected)
     {
         var cpu = new CpuState
@@ -343,12 +343,12 @@ public class UnitTest1
     }
 
     [Theory]
-    [InlineData(0x02, Flags.Zero | Flags.Subtract, 0x00)] // 2 - 2 = 0, Zero flag set
-    [InlineData(0x03, Flags.Subtract, 0x01)] // 3 - 2 = 1, only Negative flag set
-    [InlineData(0x01, Flags.Carry | Flags.HalfCarry | Flags.Subtract,
+    [InlineData(0x02, Flags.Zero | Flags.Negative, 0x00)] // 2 - 2 = 0, Zero flag set
+    [InlineData(0x03, Flags.Negative, 0x01)] // 3 - 2 = 1, only Negative flag set
+    [InlineData(0x01, Flags.Carry | Flags.HalfCarry | Flags.Negative,
         0xFF)] // 1 - 2 = -1 (wraps to 0xFF), Carry & HalfCarry set
-    [InlineData(0x80, Flags.Subtract | Flags.HalfCarry, 0x7E)] // 0x80 - 2 = 0x7E, only Negative flag set
-    [InlineData(0x00, Flags.Carry | Flags.Subtract | Flags.HalfCarry, 0xFE)] // 0 - 2 = -2 (wraps to 0xFE), Carry set
+    [InlineData(0x80, Flags.Negative | Flags.HalfCarry, 0x7E)] // 0x80 - 2 = 0x7E, only Negative flag set
+    [InlineData(0x00, Flags.Carry | Flags.Negative | Flags.HalfCarry, 0xFE)] // 0 - 2 = -2 (wraps to 0xFE), Carry set
     public void SUB_A_B(byte initialA, Flags expected, byte expectedA)
     {
         var cpu = new CpuState
@@ -389,12 +389,12 @@ public class UnitTest1
     }
 
     [Theory]
-    [InlineData(0x02, Flags.Zero | Flags.Subtract, 0x00)] // 2 - 2 = 0, Zero flag set
-    [InlineData(0x03, Flags.Subtract, 0x01)] // 3 - 2 = 1, only Negative flag set
-    [InlineData(0x01, Flags.Carry | Flags.HalfCarry | Flags.Subtract,
+    [InlineData(0x02, Flags.Zero | Flags.Negative, 0x00)] // 2 - 2 = 0, Zero flag set
+    [InlineData(0x03, Flags.Negative, 0x01)] // 3 - 2 = 1, only Negative flag set
+    [InlineData(0x01, Flags.Carry | Flags.HalfCarry | Flags.Negative,
         0xFF)] // 1 - 2 = -1 (wraps to 0xFF), Carry & HalfCarry set
-    [InlineData(0x80, Flags.Subtract | Flags.HalfCarry, 0x7E)] // 0x80 - 2 = 0x7E, only Negative flag set
-    [InlineData(0x00, Flags.Carry | Flags.Subtract | Flags.HalfCarry, 0xFE)] // 0 - 2 = -2 (wraps to 0xFE), Carry set
+    [InlineData(0x80, Flags.Negative | Flags.HalfCarry, 0x7E)] // 0x80 - 2 = 0x7E, only Negative flag set
+    [InlineData(0x00, Flags.Carry | Flags.Negative | Flags.HalfCarry, 0xFE)] // 0 - 2 = -2 (wraps to 0xFE), Carry set
     public void SUB_A_n8(byte initialA, Flags expected, byte expectedA)
     {
         var cpu = new CpuState
@@ -433,9 +433,103 @@ public class UnitTest1
         Assert.Equal(expectedFlags, cpu.F);
     }
 
+    [Theory]
+    [InlineData(0x02, false, (Flags)0, 0x01)] // 0x02 >> 1 = 0x01, no carry
+    [InlineData(0x01, false, Flags.Carry | Flags.Zero, 0x00)] // 0x01 >> 1 = 0x00, Carry set, Zero set
+    [InlineData(0x80, false, (Flags)0, 0x40)] // 0x80 >> 1 = 0x40, no carry
+    [InlineData(0xFF, false, Flags.Carry, 0x7F)] // 0xFF >> 1 = 0x7F, Carry set
+    [InlineData(0x00, false, Flags.Zero, 0x00)] // 0 remains 0, Zero set
+    [InlineData(0x01, true, Flags.Carry, 0x80)] // 0x01 >> 1, Carry in → 0x80, Carry out
+    [InlineData(0x02, true, (Flags)0, 0x81)] // 0x02 >> 1, Carry in → 0x81, no Carry out
+    public void RR_C(byte initialC, bool carryIn, Flags expectedFlags, byte expectedC)
+    {
+        var cpu = new CpuState
+        {
+            C = initialC,
+            F = carryIn ? Flags.Carry : 0,
+        };
+
+        Executioner.RR_C(cpu, new GBMock());
+
+        Assert.Equal(expectedC, cpu.C);
+        Assert.Equal(expectedFlags, cpu.F);
+    }
+
+    [Theory]
+    [InlineData(0x02, false, (Flags)0, 0x01)] // 0x02 >> 1 = 0x01, no carry
+    [InlineData(0x01, false, Flags.Carry, 0x00)] // 0x01 >> 1 = 0x00, Carry set
+    [InlineData(0x80, false, (Flags)0, 0x40)] // 0x80 >> 1 = 0x40, no carry
+    [InlineData(0xFF, false, Flags.Carry, 0x7F)] // 0xFF >> 1 = 0x7F, Carry set
+    [InlineData(0x00, false, (Flags)0, 0x00)] // 0 remains 0, no carry
+    [InlineData(0x01, true, Flags.Carry, 0x80)] // 0x01 >> 1 with Carry in → 0x80, Carry out
+    [InlineData(0x02, true, (Flags)0, 0x81)] // 0x02 >> 1 with Carry in → 0x81, no Carry out
+    public void RRA(byte initialA, bool carryIn, Flags expectedFlags, byte expectedA)
+    {
+        var cpu = new CpuState
+        {
+            A = initialA,
+            F = carryIn ? Flags.Carry : 0,
+        };
+
+        Executioner.RRA(cpu, new GBMock());
+
+        Assert.Equal(expectedA, cpu.A);
+        Assert.Equal(expectedFlags, cpu.F);
+    }
+
+    [Theory]
+    [InlineData(0x10, 0x20, false, (Flags)0, 0x30)] // 0x10 + 0x20 = 0x30, no carry
+    [InlineData(0xF0, 0x10, false, Flags.Zero | Flags.Carry, 0x00)] // 0xF0 + 0x10 = 0x00 (overflow), Half-Carry set
+    [InlineData(0x80, 0x80, false, Flags.Carry | Flags.Zero, 0x00)] // 0x80 + 0x80 = 0x00 (overflow), Carry set
+    [InlineData(0xFF, 0x01, false, Flags.Carry | Flags.Zero | Flags.HalfCarry, 0x00)] // 0xFF + 0x01 = 0x00, Carry set
+    [InlineData(0x0F, 0x01, false, Flags.HalfCarry, 0x10)] // 0x0F + 0x01 = 0x10, Half-Carry set
+    [InlineData(0xFF, 0x01, true, Flags.Carry | Flags.HalfCarry,
+        0x01)] // 0xFF + 0x01 + Carry = 0x01, Carry and Half-Carry set
+    [InlineData(0x00, 0x00, true, (Flags)0, 0x01)] // 0x00 + 0x00 + Carry = 0x01, Zero set
+    public void ADC_A_n8(byte initialA, byte immediate, bool carryIn, Flags expectedFlags, byte expectedA)
+    {
+        var cpu = new CpuState
+        {
+            A = initialA,
+            PC = 0x100, // Arbitrary program counter location
+            F = carryIn ? Flags.Carry : 0,
+        };
+
+        var gbMock = new GBMock();
+        gbMock.WriteByte(0x100, immediate);
+
+        Executioner.ADC_A_n8(cpu, gbMock);
+
+        Assert.Equal(expectedA, cpu.A);
+        Assert.Equal(expectedFlags, cpu.F);
+    }
+
+    [Theory]
+    [InlineData(0x02, Flags.Negative, 0x01)] // 0x02 - 1 = 0x01, only Negative set
+    [InlineData(0x01, Flags.Zero | Flags.Negative, 0x00)] // 0x01 - 1 = 0x00, Zero and Negative set
+    [InlineData(0x10, Flags.HalfCarry | Flags.Negative, 0x0F)] // 0x10 - 1 = 0x0F, Half-Carry set
+    [InlineData(0x00, Flags.Zero | Flags.Negative | Flags.HalfCarry, 0xFF)] // 0x00 - 1 = 0xFF, Half-Carry set
+    public void DEC_iHL(byte initialValue, Flags expectedFlags, byte expectedValue)
+    {
+        var cpu = new CpuState
+        {
+            HL = 0x1234, // Arbitrary memory address
+            F = 0,
+        };
+
+        var gbMock = new GBMock();
+        gbMock.WriteByte(0x1234, initialValue); // Set value at HL address
+
+        Executioner.DEC_iHL(cpu, gbMock);
+
+        Assert.Equal(expectedValue, gbMock.ReadByte(0x1234));
+        Assert.Equal(expectedFlags, cpu.F);
+    }
+
+
     private class GBMock : IGameBoy
     {
-        private readonly byte[] _mem = new byte[0x1000];
+        private readonly byte[] _mem = new byte[0x2000];
 
         public GameBoyCartridgeHeader? CartridgeHeader { get; }
 

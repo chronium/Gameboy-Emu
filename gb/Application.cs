@@ -37,6 +37,10 @@ public partial class Application
 
     private EmulatorRunningMode _runningMode;
     private SdlTexture _screenTexture;
+
+    private string _serialData = "";
+
+    private bool _showMenu;
     private float _speedMultiplier = 1.0f;
     private bool _step;
     private unsafe SDL_Surface* _surface = null;
@@ -72,6 +76,8 @@ public partial class Application
         // LoadBootRom();
 
         if (!string.IsNullOrEmpty(romPath)) LoadRom(romPath);
+
+        _gameBoy.OnSerialTransfer = b => _serialData += (char)b;
 
         return this;
     }
@@ -119,9 +125,27 @@ public partial class Application
         ImGui_SDL3.ImGui_ImplSDL3_NewFrame();
         ImGui.NewFrame();
 
-        GlobalMenu(_data);
+        var io = ImGui.GetIO();
+
+        const float menuHeight = 200.0f; // Adjust as needed
+        const float activationZoneHeight = 5.0f; // How much space triggers the menu
+
+        _showMenu = io.MousePos.Y switch
+        {
+            // Detect if the mouse is near the top
+            <= activationZoneHeight => true,
+            // Add some delay to hide
+            > menuHeight + 10 => false,
+            _ => _showMenu,
+        };
+
+        if (_showMenu)
+            GlobalMenu(_data);
+
         Debugger();
         MemoryWindow();
+        DrawSerialOutput();
+
         _gameBoy.CpuState.ImGuiRegistersDisplay();
 
         if (_step && _runningMode == EmulatorRunningMode.Stopped)
@@ -227,6 +251,13 @@ public partial class Application
         _gameBoy.LoadRom(rom);
         _gameBoy.ResetNoBootRom(_gameBoy.CartridgeHeader.Value);
         SDL_SetWindowTitle(_window, $"{_gameBoy.CartridgeHeader?.GetTitle() ?? "GB Emu"}");
+    }
+
+    private void DrawSerialOutput()
+    {
+        ImGui.Begin("Serial Output");
+        ImGui.Text(_serialData);
+        ImGui.End();
     }
 
     private class Breakpoint(int address, int bank)
