@@ -62,7 +62,12 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SCF");
 
-        throw new NotImplementedException("SCF");
+        cpuState.F |= Flags.Carry;
+
+        cpuState.F &= ~Flags.HalfCarry;
+        cpuState.F &= ~Flags.Negative;
+
+        return 4;
     }
 
     /// <summary>
@@ -81,7 +86,12 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "CCF");
 
-        throw new NotImplementedException("CCF");
+        cpuState.F ^= Flags.Carry;
+
+        cpuState.F &= ~Flags.HalfCarry;
+        cpuState.F &= ~Flags.Negative;
+
+        return 4;
     }
 
     /// <summary>
@@ -100,7 +110,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "HALT");
 
-        throw new NotImplementedException("HALT");
+        while (true)
+        {
+        }
     }
 
     /// <summary>

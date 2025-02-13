@@ -27,6 +27,9 @@ public static partial class Executioner
 
         cpuState.F = carryOut ? Flags.Carry : 0;
 
+        if (cpuState.B == 0)
+            cpuState.F |= Flags.Zero;
+
         return 8;
     }
 
@@ -52,6 +55,9 @@ public static partial class Executioner
         cpuState.C = (byte)((value << 1) | (carryOut ? 0x01 : 0x00));
 
         cpuState.F = carryOut ? Flags.Carry : 0;
+
+        if (cpuState.C == 0)
+            cpuState.F |= Flags.Zero;
 
         return 8;
     }
@@ -79,6 +85,9 @@ public static partial class Executioner
 
         cpuState.F = carryOut ? Flags.Carry : 0;
 
+        if (cpuState.D == 0)
+            cpuState.F |= Flags.Zero;
+
         return 8;
     }
 
@@ -104,6 +113,9 @@ public static partial class Executioner
         cpuState.E = (byte)((value << 1) | (carryOut ? 0x01 : 0x00));
 
         cpuState.F = carryOut ? Flags.Carry : 0;
+
+        if (cpuState.E == 0)
+            cpuState.F |= Flags.Zero;
 
         return 8;
     }
@@ -131,6 +143,9 @@ public static partial class Executioner
 
         cpuState.F = carryOut ? Flags.Carry : 0;
 
+        if (cpuState.H == 0)
+            cpuState.F |= Flags.Zero;
+
         return 8;
     }
 
@@ -157,6 +172,9 @@ public static partial class Executioner
 
         cpuState.F = carryOut ? Flags.Carry : 0;
 
+        if (cpuState.L == 0)
+            cpuState.F |= Flags.Zero;
+
         return 8;
     }
 
@@ -181,6 +199,9 @@ public static partial class Executioner
         gb.WriteByte(cpuState.HL, (byte)((value << 1) | (carryOut ? 0x01 : 0x00)));
 
         cpuState.F = carryOut ? Flags.Carry : 0;
+
+        if (gb.ReadByte(cpuState.HL) == 0)
+            cpuState.F |= Flags.Zero;
 
         return 8;
     }
@@ -207,6 +228,9 @@ public static partial class Executioner
         cpuState.A = (byte)((value << 1) | (carryOut ? 0x01 : 0x00));
 
         cpuState.F = carryOut ? Flags.Carry : 0;
+
+        if (cpuState.A == 0)
+            cpuState.F |= Flags.Zero;
 
         return 8;
     }
@@ -443,21 +467,26 @@ public static partial class Executioner
     ///         Flags: Z=Z, N=0, H=0, C=C
     ///     </para>
     /// </summary>
-    /// <param cref="gb.CpuState" name="cpuState">The CPU state</param>
-    /// <param cref="gb.IGameBoy" name="gb">The Game Boy instance</param>
+    /// <param name="cpuState">The CPU state</param>
+    /// <param name="gb">The Game Boy instance</param>
     /// <returns>The number of cycles taken</returns>
     internal static int RL_B(CpuState cpuState, IGameBoy gb)
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RL_B");
 
-        cpuState.F = 0;
+        var oldCarry = (cpuState.F & Flags.Carry) != 0 ? 1 : 0;
+        var newCarry = (cpuState.B & 0x80) != 0;
 
-        var bit7 = (cpuState.B & 0b1000_0000) != 0;
-        cpuState.F = bit7 ? cpuState.F | Flags.Carry : cpuState.F & ~Flags.Carry;
+        var result = (byte)((cpuState.B << 1) | oldCarry);
+        cpuState.B = result;
 
-        cpuState.B = (byte)((cpuState.B << 1) | (bit7 ? 1 : 0));
+        Flags flags = 0;
+        if (result == 0)
+            flags |= Flags.Zero;
+        if (newCarry)
+            flags |= Flags.Carry;
 
-        cpuState.F = cpuState.B == 0 ? cpuState.F | Flags.Zero : cpuState.F & ~Flags.Zero;
+        cpuState.F = flags;
 
         return 8;
     }
@@ -478,14 +507,19 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RL_C");
 
-        cpuState.F = 0;
+        var oldCarry = (cpuState.F & Flags.Carry) != 0 ? 1 : 0;
+        var newCarry = (cpuState.C & 0x80) != 0;
 
-        var bit7 = (cpuState.C & 0b1000_0000) != 0;
-        cpuState.F = bit7 ? cpuState.F | Flags.Carry : cpuState.F & ~Flags.Carry;
+        var result = (byte)((cpuState.C << 1) | oldCarry);
+        cpuState.C = result;
 
-        cpuState.C = (byte)((cpuState.C << 1) | (bit7 ? 1 : 0));
+        Flags flags = 0;
+        if (result == 0)
+            flags |= Flags.Zero;
+        if (newCarry)
+            flags |= Flags.Carry;
 
-        cpuState.F = cpuState.C == 0 ? cpuState.F | Flags.Zero : cpuState.F & ~Flags.Zero;
+        cpuState.F = flags;
 
         return 8;
     }
@@ -506,14 +540,19 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RL_D");
 
-        cpuState.F = 0;
+        var oldCarry = (cpuState.F & Flags.Carry) != 0 ? 1 : 0;
+        var newCarry = (cpuState.D & 0x80) != 0;
 
-        var bit7 = (cpuState.D & 0b1000_0000) != 0;
-        cpuState.F = bit7 ? cpuState.F | Flags.Carry : cpuState.F & ~Flags.Carry;
+        var result = (byte)((cpuState.D << 1) | oldCarry);
+        cpuState.D = result;
 
-        cpuState.D = (byte)((cpuState.D << 1) | (bit7 ? 1 : 0));
+        Flags flags = 0;
+        if (result == 0)
+            flags |= Flags.Zero;
+        if (newCarry)
+            flags |= Flags.Carry;
 
-        cpuState.F = cpuState.D == 0 ? cpuState.F | Flags.Zero : cpuState.F & ~Flags.Zero;
+        cpuState.F = flags;
 
         return 8;
     }
@@ -534,14 +573,19 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RL_E");
 
-        cpuState.F = 0;
+        var oldCarry = (cpuState.F & Flags.Carry) != 0 ? 1 : 0;
+        var newCarry = (cpuState.E & 0x80) != 0;
 
-        var bit7 = (cpuState.E & 0b1000_0000) != 0;
-        cpuState.F = bit7 ? cpuState.F | Flags.Carry : cpuState.F & ~Flags.Carry;
+        var result = (byte)((cpuState.E << 1) | oldCarry);
+        cpuState.E = result;
 
-        cpuState.E = (byte)((cpuState.E << 1) | (bit7 ? 1 : 0));
+        Flags flags = 0;
+        if (result == 0)
+            flags |= Flags.Zero;
+        if (newCarry)
+            flags |= Flags.Carry;
 
-        cpuState.F = cpuState.E == 0 ? cpuState.F | Flags.Zero : cpuState.F & ~Flags.Zero;
+        cpuState.F = flags;
 
         return 8;
     }
@@ -562,14 +606,19 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RL_H");
 
-        cpuState.F = 0;
+        var oldCarry = (cpuState.F & Flags.Carry) != 0 ? 1 : 0;
+        var newCarry = (cpuState.H & 0x80) != 0;
 
-        var bit7 = (cpuState.H & 0b1000_0000) != 0;
-        cpuState.F = bit7 ? cpuState.F | Flags.Carry : cpuState.F & ~Flags.Carry;
+        var result = (byte)((cpuState.H << 1) | oldCarry);
+        cpuState.H = result;
 
-        cpuState.H = (byte)((cpuState.H << 1) | (bit7 ? 1 : 0));
+        Flags flags = 0;
+        if (result == 0)
+            flags |= Flags.Zero;
+        if (newCarry)
+            flags |= Flags.Carry;
 
-        cpuState.F = cpuState.H == 0 ? cpuState.F | Flags.Zero : cpuState.F & ~Flags.Zero;
+        cpuState.F = flags;
 
         return 8;
     }
@@ -590,14 +639,19 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RL_L");
 
-        cpuState.F = 0;
+        var oldCarry = (cpuState.F & Flags.Carry) != 0 ? 1 : 0;
+        var newCarry = (cpuState.L & 0x80) != 0;
 
-        var bit7 = (cpuState.L & 0b1000_0000) != 0;
-        cpuState.F = bit7 ? cpuState.F | Flags.Carry : cpuState.F & ~Flags.Carry;
+        var result = (byte)((cpuState.L << 1) | oldCarry);
+        cpuState.L = result;
 
-        cpuState.L = (byte)((cpuState.L << 1) | (bit7 ? 1 : 0));
+        Flags flags = 0;
+        if (result == 0)
+            flags |= Flags.Zero;
+        if (newCarry)
+            flags |= Flags.Carry;
 
-        cpuState.F = cpuState.L == 0 ? cpuState.F | Flags.Zero : cpuState.F & ~Flags.Zero;
+        cpuState.F = flags;
 
         return 8;
     }
@@ -617,16 +671,19 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RL_iHL");
 
-        cpuState.F = 0;
+        var oldCarry = (cpuState.F & Flags.Carry) != 0 ? 1 : 0;
+        var newCarry = (gb.ReadByte(cpuState.HL) & 0x80) != 0;
 
-        var value = gb.ReadByte(cpuState.HL);
+        var result = (byte)((gb.ReadByte(cpuState.HL) << 1) | oldCarry);
+        gb.WriteByte(cpuState.HL, result);
 
-        var bit7 = (value & 0b1000_0000) != 0;
-        cpuState.F = bit7 ? cpuState.F | Flags.Carry : cpuState.F & ~Flags.Carry;
+        Flags flags = 0;
+        if (result == 0)
+            flags |= Flags.Zero;
+        if (newCarry)
+            flags |= Flags.Carry;
 
-        gb.WriteByte(cpuState.HL, (byte)((value << 1) | (bit7 ? 1 : 0)));
-
-        cpuState.F = gb.ReadByte(cpuState.HL) == 0 ? cpuState.F | Flags.Zero : cpuState.F & ~Flags.Zero;
+        cpuState.F = flags;
 
         return 8;
     }
@@ -647,14 +704,19 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RL_A");
 
-        cpuState.F = 0;
+        var oldCarry = (cpuState.F & Flags.Carry) != 0 ? 1 : 0;
+        var newCarry = (cpuState.A & 0x80) != 0;
 
-        var bit7 = (cpuState.A & 0b1000_0000) != 0;
-        cpuState.F = bit7 ? cpuState.F | Flags.Carry : cpuState.F & ~Flags.Carry;
+        var result = (byte)((cpuState.A << 1) | oldCarry);
+        cpuState.A = result;
 
-        cpuState.A = (byte)((cpuState.A << 1) | (bit7 ? 1 : 0));
+        Flags flags = 0;
+        if (result == 0)
+            flags |= Flags.Zero;
+        if (newCarry)
+            flags |= Flags.Carry;
 
-        cpuState.F = cpuState.A == 0 ? cpuState.F | Flags.Zero : cpuState.F & ~Flags.Zero;
+        cpuState.F = flags;
 
         return 8;
     }
@@ -1811,7 +1873,19 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SRL_A");
 
-        throw new NotImplementedException("SRL_A");
+        var value = cpuState.A;
+        var carry = (value & 0x01) != 0;
+
+        cpuState.A = (byte)(value >> 1);
+
+        cpuState.F = 0;
+        if (cpuState.A == 0)
+            cpuState.F |= Flags.Zero;
+
+        if (carry)
+            cpuState.F |= Flags.Carry;
+
+        return 8;
     }
 
     /// <summary>
