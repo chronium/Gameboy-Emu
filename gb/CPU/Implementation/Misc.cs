@@ -110,9 +110,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "HALT");
 
-        while (true)
-        {
-        }
+        gb.Halt();
+
+        return 4;
     }
 
     /// <summary>
@@ -302,8 +302,7 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "DI");
 
-        //TODO: DI
-        Console.WriteLine("TODO: DI");
+        cpuState.IME = false;
 
         return 4;
     }
@@ -343,8 +342,7 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "EI");
 
-        //TODO: EI
-        Console.WriteLine("TODO: EI");
+        cpuState.IME = true;
 
         return 4;
     }

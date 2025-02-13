@@ -18,6 +18,8 @@ public class CpuState
     public byte H { get; set; }
     public byte L { get; set; }
 
+    public bool IME { get; set; }
+
     public ushort BC
     {
         get => (ushort)((B << 8) | C);

@@ -4,13 +4,59 @@ namespace gb;
 
 public class GameBoy : IGameBoy
 {
+    public enum EmulatorRunningMode
+    {
+        Running,
+        Halted,
+        OamDma,
+    }
+
     public readonly CpuState CpuState = new();
+
+    public EmulatorRunningMode RunningMode = EmulatorRunningMode.Running;
 
     public Memory Memory { get; } = new();
 
     public PPU PPU { get; } = new();
 
     public Action<byte>? OnSerialTransfer { get; set; }
+
+    public bool VBlankInterruptEnabled { get; set; }
+    public bool LcdStatInterruptEnabled { get; set; }
+    public bool TimerInterruptEnabled { get; set; }
+    public bool SerialInterruptEnabled { get; set; }
+    public bool JoypadInterruptEnabled { get; set; }
+
+    public byte IE
+    {
+        get
+        {
+            var ie = 0;
+            ie |= VBlankInterruptEnabled ? 0b0000_0001 : 0;
+            ie |= LcdStatInterruptEnabled ? 0b0000_0010 : 0;
+            ie |= TimerInterruptEnabled ? 0b0000_0100 : 0;
+            ie |= SerialInterruptEnabled ? 0b0000_1000 : 0;
+            ie |= JoypadInterruptEnabled ? 0b0001_0000 : 0;
+            return (byte)ie;
+        }
+
+        set
+        {
+            VBlankInterruptEnabled = (value & 0b0000_0001) != 0;
+            LcdStatInterruptEnabled = (value & 0b0000_0010) != 0;
+            TimerInterruptEnabled = (value & 0b0000_0100) != 0;
+            SerialInterruptEnabled = (value & 0b0000_1000) != 0;
+            JoypadInterruptEnabled = (value & 0b0001_0000) != 0;
+        }
+    }
+
+    public bool VBlankInterruptRequested { get; set; }
+    public bool LcdStatInterruptRequested { get; set; }
+    public bool TimerInterruptRequested { get; set; }
+    public bool SerialInterruptRequested { get; set; }
+    public bool JoypadInterruptRequested { get; set; }
+
+    public ushort OamDmaSource { get; set; }
 
     public GameBoyCartridgeHeader? CartridgeHeader { get; private set; }
 
@@ -55,7 +101,7 @@ public class GameBoy : IGameBoy
             >= 0xfea0 and <= 0xfeff => 0,
             >= 0xff00 and <= 0xff7f => ReadMMIO(address),
             >= 0xff80 and <= 0xfffe => Memory.HRAM[address - 0xff80],
-            0xffff => 0, // TODO: IME
+            0xffff => IE,
             _ => throw new NotImplementedException($"Read from address {address:X4} not implemented"),
         };
     }
@@ -95,8 +141,7 @@ public class GameBoy : IGameBoy
                 Memory.HRAM[address - 0xff80] = value;
                 break;
             case 0xFFFF:
-                // TODO: IME
-                Console.WriteLine("TODO: IME");
+                IE = value;
                 break;
             default: throw new NotImplementedException($"Write to address {address:X4} not implemented");
         }
@@ -119,6 +164,18 @@ public class GameBoy : IGameBoy
         var value = ReadUShort(CpuState.SP);
         CpuState.SP += 2;
         return value;
+    }
+
+    public void Halt()
+    {
+        Console.WriteLine("Halted");
+        RunningMode = EmulatorRunningMode.Halted;
+    }
+
+    public void Resume()
+    {
+        Console.WriteLine("Resumed");
+        RunningMode = EmulatorRunningMode.Running;
     }
 
     public void LoadBootRom(ReadOnlySpan<byte> bootRom)
@@ -157,8 +214,34 @@ public class GameBoy : IGameBoy
 
     public int Step()
     {
-        var cycles = Executioner.Execute(CpuState, this);
-        // var cycles = Cpu.Step(this);
+        if (CpuState.IME && VBlankInterruptRequested)
+        {
+            CpuState.IME = false;
+            VBlankInterruptRequested = false;
+
+            if (VBlankInterruptEnabled)
+            {
+                Console.WriteLine("vblank?");
+                Push(CpuState.PC);
+                CpuState.PC = 0x40;
+            }
+        }
+
+        if (!CpuState.IME && VBlankInterruptRequested && RunningMode == EmulatorRunningMode.Halted)
+        {
+            RunningMode = EmulatorRunningMode.Running;
+            VBlankInterruptRequested = false;
+        }
+
+        var cycles = RunningMode == EmulatorRunningMode.Running ? Executioner.Execute(CpuState, this) : 4;
+
+        if (RunningMode == EmulatorRunningMode.OamDma)
+        {
+            RunningMode = EmulatorRunningMode.Running;
+            cycles += 4 * 160;
+
+            for (var i = 0; i < 160; i++) PPU.OAM[i] = ReadByte((ushort)(OamDmaSource + i));
+        }
 
         for (var i = 0; i < cycles; i++) PPU.Step(this);
 
@@ -177,7 +260,7 @@ public class GameBoy : IGameBoy
                 Console.WriteLine($"Write {value:X4} to APU address {address:X4}");
                 break;
             case <= 0xFF70:
-                PPU.WriteMMIO(address, value);
+                PPU.WriteMMIO(this, address, value);
                 break;
             default:
                 Console.WriteLine($"Write {value:X4} to I/O address {address:X4}");

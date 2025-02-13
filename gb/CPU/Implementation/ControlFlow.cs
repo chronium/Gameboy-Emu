@@ -550,8 +550,9 @@ public static partial class Executioner
         gb.TraceCpuOp(cpuState.PC - 1, "RETI");
 
         cpuState.PC = gb.Pop();
+        cpuState.IME = true;
 
-        //TODO: Enable interrupts
+        gb.Resume();
 
         return 16;
     }

@@ -120,8 +120,8 @@ public class PPU
 
     private void Draw(GameBoy gb, int x, int y)
     {
-        var tileX = x / 8;
-        var tileY = y / 8;
+        var tileX = (x + SCX) / 8;
+        var tileY = (y + SCY) / 8;
 
         var tileMapArea = BgTileMapArea switch
         {
@@ -232,6 +232,8 @@ public class PPU
             LX = 0;
             LY++;
 
+            if (LX == 0 && LY == 144) gb.VBlankInterruptRequested = true;
+            // Console.WriteLine($"{gb.CpuState.IME}");
             if (LY >= 154)
             {
                 LY = 0;
@@ -240,7 +242,7 @@ public class PPU
         }
     }
 
-    public void WriteMMIO(ushort address, byte value)
+    public void WriteMMIO(GameBoy gb, ushort address, byte value)
     {
         switch (address)
         {
@@ -259,6 +261,10 @@ public class PPU
             case 0xFF43:
                 Console.WriteLine($"SCX: {value}");
                 SCX = value;
+                break;
+            case 0xff46:
+                gb.RunningMode = GameBoy.EmulatorRunningMode.OamDma;
+                gb.OamDmaSource = (ushort)(value << 8);
                 break;
             case 0xFF47:
                 Console.WriteLine($"BG Palette: {value}");

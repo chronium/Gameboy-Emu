@@ -21,4 +21,6 @@ public interface IGameBoy
     void WriteUShort(ushort address, ushort value);
     void Push(ushort value);
     ushort Pop();
+    void Halt();
+    void Resume();
 }

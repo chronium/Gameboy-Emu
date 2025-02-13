@@ -73,7 +73,7 @@ public partial class Application
 
         InitImGui();
 
-        // LoadBootRom();
+        LoadBootRom();
 
         if (!string.IsNullOrEmpty(romPath)) LoadRom(romPath);
 
@@ -237,7 +237,7 @@ public partial class Application
 
     private void LoadBootRom()
     {
-        var bootRom = File.ReadAllBytes("dmg_bootrom.bin");
+        var bootRom = File.ReadAllBytes("dmg_boot.bin");
 
         _gameBoy.LoadBootRom(bootRom);
     }
@@ -249,7 +249,7 @@ public partial class Application
         var rom = File.ReadAllBytes(romPath);
 
         _gameBoy.LoadRom(rom);
-        _gameBoy.ResetNoBootRom(_gameBoy.CartridgeHeader.Value);
+        // _gameBoy.ResetNoBootRom(_gameBoy.CartridgeHeader.Value);
         SDL_SetWindowTitle(_window, $"{_gameBoy.CartridgeHeader?.GetTitle() ?? "GB Emu"}");
     }
 
