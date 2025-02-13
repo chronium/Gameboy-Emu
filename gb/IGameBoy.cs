@@ -3,6 +3,13 @@ namespace gb;
 public interface IGameBoy
 {
     GameBoyCartridgeHeader? CartridgeHeader { get; }
+
+    byte this[ushort address]
+    {
+        get => ReadByte(address);
+        set => WriteByte(address, value);
+    }
+
     void TraceCpuOp(int address, string op);
     void TraceCpuOp(int cpuStatePc, string op, sbyte imm);
     void TraceCpuOp(int cpuStatePc, string op, byte imm);

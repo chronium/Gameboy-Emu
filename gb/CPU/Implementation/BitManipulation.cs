@@ -3624,7 +3624,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_0_B");
 
-        throw new NotImplementedException("RES_0_B");
+        cpuState.B &= 0b11111110;
+
+        return 8;
     }
 
     /// <summary>
@@ -3643,7 +3645,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_0_C");
 
-        throw new NotImplementedException("RES_0_C");
+        cpuState.C &= 0b11111110;
+
+        return 8;
     }
 
     /// <summary>
@@ -3662,7 +3666,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_0_D");
 
-        throw new NotImplementedException("RES_0_D");
+        cpuState.D &= 0b11111110;
+
+        return 8;
     }
 
     /// <summary>
@@ -3681,7 +3687,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_0_E");
 
-        throw new NotImplementedException("RES_0_E");
+        cpuState.E &= 0b11111110;
+
+        return 8;
     }
 
     /// <summary>
@@ -3700,7 +3708,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_0_H");
 
-        throw new NotImplementedException("RES_0_H");
+        cpuState.H &= 0b11111110;
+
+        return 8;
     }
 
     /// <summary>
@@ -3719,7 +3729,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_0_L");
 
-        throw new NotImplementedException("RES_0_L");
+        cpuState.L &= 0b11111110;
+
+        return 8;
     }
 
     /// <summary>
@@ -3737,7 +3749,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_0_iHL");
 
-        throw new NotImplementedException("RES_0_iHL");
+        gb[cpuState.HL] &= 0b11111110;
+
+        return 16;
     }
 
     /// <summary>
@@ -3777,7 +3791,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_1_B");
 
-        throw new NotImplementedException("RES_1_B");
+        cpuState.B &= 0b11111101;
+
+        return 8;
     }
 
     /// <summary>
@@ -3796,7 +3812,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_1_C");
 
-        throw new NotImplementedException("RES_1_C");
+        cpuState.C &= 0b11111101;
+
+        return 8;
     }
 
     /// <summary>
@@ -3815,7 +3833,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_1_D");
 
-        throw new NotImplementedException("RES_1_D");
+        cpuState.D &= 0b11111101;
+
+        return 8;
     }
 
     /// <summary>
@@ -3834,7 +3854,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_1_E");
 
-        throw new NotImplementedException("RES_1_E");
+        cpuState.E &= 0b11111101;
+
+        return 8;
     }
 
     /// <summary>
@@ -3853,7 +3875,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_1_H");
 
-        throw new NotImplementedException("RES_1_H");
+        cpuState.H &= 0b11111101;
+
+        return 8;
     }
 
     /// <summary>
@@ -3872,7 +3896,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_1_L");
 
-        throw new NotImplementedException("RES_1_L");
+        cpuState.L &= 0b11111101;
+
+        return 8;
     }
 
     /// <summary>
@@ -3890,7 +3916,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_1_iHL");
 
-        throw new NotImplementedException("RES_1_iHL");
+        gb[cpuState.HL] &= 0b11111101;
+
+        return 16;
     }
 
     /// <summary>
@@ -3909,7 +3937,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_1_A");
 
-        throw new NotImplementedException("RES_1_A");
+        cpuState.A &= 0b11111101;
+
+        return 8;
     }
 
     /// <summary>
@@ -3928,7 +3958,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_2_B");
 
-        throw new NotImplementedException("RES_2_B");
+        cpuState.B &= 0b11111011;
+
+        return 8;
     }
 
     /// <summary>
@@ -3947,7 +3979,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_2_C");
 
-        throw new NotImplementedException("RES_2_C");
+        cpuState.C &= 0b11111011;
+
+        return 8;
     }
 
     /// <summary>
@@ -3966,7 +4000,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_2_D");
 
-        throw new NotImplementedException("RES_2_D");
+        cpuState.D &= 0b11111011;
+
+        return 8;
     }
 
     /// <summary>
@@ -3985,7 +4021,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_2_E");
 
-        throw new NotImplementedException("RES_2_E");
+        cpuState.E &= 0b11111011;
+
+        return 8;
     }
 
     /// <summary>
@@ -4004,7 +4042,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_2_H");
 
-        throw new NotImplementedException("RES_2_H");
+        cpuState.H &= 0b11111011;
+
+        return 8;
     }
 
     /// <summary>
@@ -4023,7 +4063,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_2_L");
 
-        throw new NotImplementedException("RES_2_L");
+        cpuState.L &= 0b11111011;
+
+        return 8;
     }
 
     /// <summary>
@@ -4041,7 +4083,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_2_iHL");
 
-        throw new NotImplementedException("RES_2_iHL");
+        gb[cpuState.HL] &= 0b11111011;
+
+        return 16;
     }
 
     /// <summary>
@@ -4060,7 +4104,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_2_A");
 
-        throw new NotImplementedException("RES_2_A");
+        cpuState.A &= 0b11111011;
+
+        return 8;
     }
 
     /// <summary>
@@ -4079,7 +4125,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_3_B");
 
-        throw new NotImplementedException("RES_3_B");
+        cpuState.B &= 0b11110111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4098,7 +4146,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_3_C");
 
-        throw new NotImplementedException("RES_3_C");
+        cpuState.C &= 0b11110111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4117,7 +4167,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_3_D");
 
-        throw new NotImplementedException("RES_3_D");
+        cpuState.D &= 0b11110111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4136,7 +4188,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_3_E");
 
-        throw new NotImplementedException("RES_3_E");
+        cpuState.E &= 0b11110111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4155,7 +4209,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_3_H");
 
-        throw new NotImplementedException("RES_3_H");
+        cpuState.H &= 0b11110111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4174,7 +4230,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_3_L");
 
-        throw new NotImplementedException("RES_3_L");
+        cpuState.L &= 0b11110111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4192,7 +4250,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_3_iHL");
 
-        throw new NotImplementedException("RES_3_iHL");
+        gb[cpuState.HL] &= 0b11110111;
+
+        return 16;
     }
 
     /// <summary>
@@ -4211,7 +4271,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_3_A");
 
-        throw new NotImplementedException("RES_3_A");
+        cpuState.A &= 0b11110111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4230,7 +4292,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_4_B");
 
-        throw new NotImplementedException("RES_4_B");
+        cpuState.B &= 0b11101111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4249,7 +4313,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_4_C");
 
-        throw new NotImplementedException("RES_4_C");
+        cpuState.C &= 0b11101111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4268,7 +4334,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_4_D");
 
-        throw new NotImplementedException("RES_4_D");
+        cpuState.D &= 0b11101111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4287,7 +4355,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_4_E");
 
-        throw new NotImplementedException("RES_4_E");
+        cpuState.E &= 0b11101111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4306,7 +4376,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_4_H");
 
-        throw new NotImplementedException("RES_4_H");
+        cpuState.H &= 0b11101111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4325,7 +4397,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_4_L");
 
-        throw new NotImplementedException("RES_4_L");
+        cpuState.L &= 0b11101111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4343,7 +4417,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_4_iHL");
 
-        throw new NotImplementedException("RES_4_iHL");
+        gb[cpuState.HL] &= 0b11101111;
+
+        return 16;
     }
 
     /// <summary>
@@ -4362,7 +4438,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_4_A");
 
-        throw new NotImplementedException("RES_4_A");
+        cpuState.A &= 0b11101111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4381,7 +4459,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_5_B");
 
-        throw new NotImplementedException("RES_5_B");
+        cpuState.B &= 0b11011111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4400,7 +4480,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_5_C");
 
-        throw new NotImplementedException("RES_5_C");
+        cpuState.C &= 0b11011111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4419,7 +4501,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_5_D");
 
-        throw new NotImplementedException("RES_5_D");
+        cpuState.D &= 0b11011111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4438,7 +4522,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_5_E");
 
-        throw new NotImplementedException("RES_5_E");
+        cpuState.E &= 0b11011111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4457,7 +4543,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_5_H");
 
-        throw new NotImplementedException("RES_5_H");
+        cpuState.H &= 0b11011111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4476,7 +4564,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_5_L");
 
-        throw new NotImplementedException("RES_5_L");
+        cpuState.L &= 0b11011111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4494,7 +4584,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_5_iHL");
 
-        throw new NotImplementedException("RES_5_iHL");
+        gb[cpuState.HL] &= 0b11011111;
+
+        return 16;
     }
 
     /// <summary>
@@ -4513,7 +4605,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_5_A");
 
-        throw new NotImplementedException("RES_5_A");
+        cpuState.A &= 0b11011111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4532,7 +4626,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_6_B");
 
-        throw new NotImplementedException("RES_6_B");
+        cpuState.B &= 0b10111111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4551,7 +4647,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_6_C");
 
-        throw new NotImplementedException("RES_6_C");
+        cpuState.C &= 0b10111111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4570,7 +4668,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_6_D");
 
-        throw new NotImplementedException("RES_6_D");
+        cpuState.D &= 0b10111111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4589,7 +4689,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_6_E");
 
-        throw new NotImplementedException("RES_6_E");
+        cpuState.E &= 0b10111111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4608,7 +4710,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_6_H");
 
-        throw new NotImplementedException("RES_6_H");
+        cpuState.H &= 0b10111111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4627,7 +4731,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_6_L");
 
-        throw new NotImplementedException("RES_6_L");
+        cpuState.L &= 0b10111111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4645,7 +4751,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_6_iHL");
 
-        throw new NotImplementedException("RES_6_iHL");
+        gb[cpuState.HL] &= 0b10111111;
+
+        return 16;
     }
 
     /// <summary>
@@ -4664,7 +4772,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_6_A");
 
-        throw new NotImplementedException("RES_6_A");
+        cpuState.A &= 0b10111111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4683,7 +4793,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_7_B");
 
-        throw new NotImplementedException("RES_7_B");
+        cpuState.B &= 0b01111111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4702,7 +4814,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_7_C");
 
-        throw new NotImplementedException("RES_7_C");
+        cpuState.C &= 0b01111111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4721,7 +4835,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_7_D");
 
-        throw new NotImplementedException("RES_7_D");
+        cpuState.D &= 0b01111111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4740,7 +4856,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_7_E");
 
-        throw new NotImplementedException("RES_7_E");
+        cpuState.E &= 0b01111111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4759,7 +4877,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_7_H");
 
-        throw new NotImplementedException("RES_7_H");
+        cpuState.H &= 0b01111111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4778,7 +4898,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_7_L");
 
-        throw new NotImplementedException("RES_7_L");
+        cpuState.L &= 0b01111111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4796,7 +4918,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_7_iHL");
 
-        throw new NotImplementedException("RES_7_iHL");
+        gb[cpuState.HL] &= 0b01111111;
+
+        return 16;
     }
 
     /// <summary>
@@ -4815,7 +4939,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RES_7_A");
 
-        throw new NotImplementedException("RES_7_A");
+        cpuState.A &= 0b01111111;
+
+        return 8;
     }
 
     /// <summary>
@@ -4834,7 +4960,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_0_B");
 
-        throw new NotImplementedException("SET_0_B");
+        cpuState.B |= 0b00000001;
+
+        return 8;
     }
 
     /// <summary>
@@ -4853,7 +4981,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_0_C");
 
-        throw new NotImplementedException("SET_0_C");
+        cpuState.C |= 0b00000001;
+
+        return 8;
     }
 
     /// <summary>
@@ -4872,7 +5002,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_0_D");
 
-        throw new NotImplementedException("SET_0_D");
+        cpuState.D |= 0b00000001;
+
+        return 8;
     }
 
     /// <summary>
@@ -4891,7 +5023,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_0_E");
 
-        throw new NotImplementedException("SET_0_E");
+        cpuState.E |= 0b00000001;
+
+        return 8;
     }
 
     /// <summary>
@@ -4910,7 +5044,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_0_H");
 
-        throw new NotImplementedException("SET_0_H");
+        cpuState.H |= 0b00000001;
+
+        return 8;
     }
 
     /// <summary>
@@ -4929,7 +5065,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_0_L");
 
-        throw new NotImplementedException("SET_0_L");
+        cpuState.L |= 0b00000001;
+
+        return 8;
     }
 
     /// <summary>
@@ -4947,7 +5085,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_0_iHL");
 
-        throw new NotImplementedException("SET_0_iHL");
+        gb[cpuState.HL] |= 0b00000001;
+
+        return 16;
     }
 
     /// <summary>
@@ -4966,7 +5106,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_0_A");
 
-        throw new NotImplementedException("SET_0_A");
+        cpuState.A |= 0b00000001;
+
+        return 8;
     }
 
     /// <summary>
@@ -4985,7 +5127,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_1_B");
 
-        throw new NotImplementedException("SET_1_B");
+        cpuState.B |= 0b00000010;
+
+        return 8;
     }
 
     /// <summary>
@@ -5004,7 +5148,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_1_C");
 
-        throw new NotImplementedException("SET_1_C");
+        cpuState.C |= 0b00000010;
+
+        return 8;
     }
 
     /// <summary>
@@ -5023,7 +5169,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_1_D");
 
-        throw new NotImplementedException("SET_1_D");
+        cpuState.D |= 0b00000010;
+
+        return 8;
     }
 
     /// <summary>
@@ -5042,7 +5190,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_1_E");
 
-        throw new NotImplementedException("SET_1_E");
+        cpuState.E |= 0b00000010;
+
+        return 8;
     }
 
     /// <summary>
@@ -5061,7 +5211,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_1_H");
 
-        throw new NotImplementedException("SET_1_H");
+        cpuState.H |= 0b00000010;
+
+        return 8;
     }
 
     /// <summary>
@@ -5080,7 +5232,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_1_L");
 
-        throw new NotImplementedException("SET_1_L");
+        cpuState.L |= 0b00000010;
+
+        return 8;
     }
 
     /// <summary>
@@ -5098,7 +5252,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_1_iHL");
 
-        throw new NotImplementedException("SET_1_iHL");
+        gb[cpuState.HL] |= 0b00000010;
+
+        return 16;
     }
 
     /// <summary>
@@ -5117,7 +5273,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_1_A");
 
-        throw new NotImplementedException("SET_1_A");
+        cpuState.A |= 0b00000010;
+
+        return 8;
     }
 
     /// <summary>
@@ -5136,7 +5294,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_2_B");
 
-        throw new NotImplementedException("SET_2_B");
+        cpuState.B |= 0b00000100;
+
+        return 8;
     }
 
     /// <summary>
@@ -5155,7 +5315,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_2_C");
 
-        throw new NotImplementedException("SET_2_C");
+        cpuState.C |= 0b00000100;
+
+        return 8;
     }
 
     /// <summary>
@@ -5174,7 +5336,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_2_D");
 
-        throw new NotImplementedException("SET_2_D");
+        cpuState.D |= 0b00000100;
+
+        return 8;
     }
 
     /// <summary>
@@ -5193,7 +5357,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_2_E");
 
-        throw new NotImplementedException("SET_2_E");
+        cpuState.E |= 0b00000100;
+
+        return 8;
     }
 
     /// <summary>
@@ -5212,7 +5378,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_2_H");
 
-        throw new NotImplementedException("SET_2_H");
+        cpuState.H |= 0b00000100;
+
+        return 8;
     }
 
     /// <summary>
@@ -5231,7 +5399,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_2_L");
 
-        throw new NotImplementedException("SET_2_L");
+        cpuState.L |= 0b00000100;
+
+        return 8;
     }
 
     /// <summary>
@@ -5249,7 +5419,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_2_iHL");
 
-        throw new NotImplementedException("SET_2_iHL");
+        gb[cpuState.HL] |= 0b00000100;
+
+        return 16;
     }
 
     /// <summary>
@@ -5268,7 +5440,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_2_A");
 
-        throw new NotImplementedException("SET_2_A");
+        cpuState.A |= 0b00000100;
+
+        return 8;
     }
 
     /// <summary>
@@ -5287,7 +5461,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_3_B");
 
-        throw new NotImplementedException("SET_3_B");
+        cpuState.B |= 0b00001000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5306,7 +5482,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_3_C");
 
-        throw new NotImplementedException("SET_3_C");
+        cpuState.C |= 0b00001000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5325,7 +5503,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_3_D");
 
-        throw new NotImplementedException("SET_3_D");
+        cpuState.D |= 0b00001000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5344,7 +5524,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_3_E");
 
-        throw new NotImplementedException("SET_3_E");
+        cpuState.E |= 0b00001000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5363,7 +5545,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_3_H");
 
-        throw new NotImplementedException("SET_3_H");
+        cpuState.H |= 0b00001000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5382,7 +5566,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_3_L");
 
-        throw new NotImplementedException("SET_3_L");
+        cpuState.L |= 0b00001000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5400,7 +5586,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_3_iHL");
 
-        throw new NotImplementedException("SET_3_iHL");
+        gb[cpuState.HL] |= 0b00001000;
+
+        return 16;
     }
 
     /// <summary>
@@ -5419,7 +5607,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_3_A");
 
-        throw new NotImplementedException("SET_3_A");
+        cpuState.A |= 0b00001000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5438,7 +5628,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_4_B");
 
-        throw new NotImplementedException("SET_4_B");
+        cpuState.B |= 0b00010000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5457,7 +5649,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_4_C");
 
-        throw new NotImplementedException("SET_4_C");
+        cpuState.C |= 0b00010000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5476,7 +5670,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_4_D");
 
-        throw new NotImplementedException("SET_4_D");
+        cpuState.D |= 0b00010000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5495,7 +5691,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_4_E");
 
-        throw new NotImplementedException("SET_4_E");
+        cpuState.E |= 0b00010000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5514,7 +5712,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_4_H");
 
-        throw new NotImplementedException("SET_4_H");
+        cpuState.H |= 0b00010000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5533,7 +5733,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_4_L");
 
-        throw new NotImplementedException("SET_4_L");
+        cpuState.L |= 0b00010000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5551,7 +5753,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_4_iHL");
 
-        throw new NotImplementedException("SET_4_iHL");
+        gb[cpuState.HL] |= 0b00010000;
+
+        return 16;
     }
 
     /// <summary>
@@ -5570,7 +5774,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_4_A");
 
-        throw new NotImplementedException("SET_4_A");
+        cpuState.A |= 0b00010000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5589,7 +5795,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_5_B");
 
-        throw new NotImplementedException("SET_5_B");
+        cpuState.B |= 0b00100000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5608,7 +5816,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_5_C");
 
-        throw new NotImplementedException("SET_5_C");
+        cpuState.C |= 0b00100000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5627,7 +5837,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_5_D");
 
-        throw new NotImplementedException("SET_5_D");
+        cpuState.D |= 0b00100000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5646,7 +5858,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_5_E");
 
-        throw new NotImplementedException("SET_5_E");
+        cpuState.E |= 0b00100000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5665,7 +5879,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_5_H");
 
-        throw new NotImplementedException("SET_5_H");
+        cpuState.H |= 0b00100000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5684,7 +5900,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_5_L");
 
-        throw new NotImplementedException("SET_5_L");
+        cpuState.L |= 0b00100000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5702,7 +5920,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_5_iHL");
 
-        throw new NotImplementedException("SET_5_iHL");
+        gb[cpuState.HL] |= 0b00100000;
+
+        return 16;
     }
 
     /// <summary>
@@ -5721,7 +5941,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_5_A");
 
-        throw new NotImplementedException("SET_5_A");
+        cpuState.A |= 0b00100000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5740,7 +5962,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_6_B");
 
-        throw new NotImplementedException("SET_6_B");
+        cpuState.B |= 0b01000000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5759,7 +5983,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_6_C");
 
-        throw new NotImplementedException("SET_6_C");
+        cpuState.C |= 0b01000000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5778,7 +6004,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_6_D");
 
-        throw new NotImplementedException("SET_6_D");
+        cpuState.D |= 0b01000000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5797,7 +6025,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_6_E");
 
-        throw new NotImplementedException("SET_6_E");
+        cpuState.E |= 0b01000000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5816,7 +6046,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_6_H");
 
-        throw new NotImplementedException("SET_6_H");
+        cpuState.H |= 0b01000000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5835,7 +6067,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_6_L");
 
-        throw new NotImplementedException("SET_6_L");
+        cpuState.L |= 0b01000000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5853,7 +6087,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_6_iHL");
 
-        throw new NotImplementedException("SET_6_iHL");
+        gb[cpuState.HL] |= 0b01000000;
+
+        return 16;
     }
 
     /// <summary>
@@ -5872,7 +6108,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_6_A");
 
-        throw new NotImplementedException("SET_6_A");
+        cpuState.A |= 0b01000000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5891,7 +6129,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_7_B");
 
-        throw new NotImplementedException("SET_7_B");
+        cpuState.B |= 0b10000000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5910,7 +6150,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_7_C");
 
-        throw new NotImplementedException("SET_7_C");
+        cpuState.C |= 0b10000000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5929,7 +6171,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_7_D");
 
-        throw new NotImplementedException("SET_7_D");
+        cpuState.D |= 0b10000000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5948,7 +6192,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_7_E");
 
-        throw new NotImplementedException("SET_7_E");
+        cpuState.E |= 0b10000000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5967,7 +6213,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_7_H");
 
-        throw new NotImplementedException("SET_7_H");
+        cpuState.H |= 0b10000000;
+
+        return 8;
     }
 
     /// <summary>
@@ -5986,7 +6234,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_7_L");
 
-        throw new NotImplementedException("SET_7_L");
+        cpuState.L |= 0b10000000;
+
+        return 8;
     }
 
     /// <summary>
@@ -6004,7 +6254,9 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_7_iHL");
 
-        throw new NotImplementedException("SET_7_iHL");
+        gb[cpuState.HL] |= 0b10000000;
+
+        return 16;
     }
 
     /// <summary>
@@ -6023,6 +6275,8 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "SET_7_A");
 
-        throw new NotImplementedException("SET_7_A");
+        cpuState.A |= 0b10000000;
+
+        return 8;
     }
 }
