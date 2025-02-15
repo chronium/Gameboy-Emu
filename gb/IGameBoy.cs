@@ -15,6 +15,7 @@ public interface IGameBoy
     void TraceCpuOp(int cpuStatePc, string op, byte imm);
     void TraceCpuOp(int cpuStatePc, string op, ushort imm);
     void TraceCpuOp(int cpuStatePc, string op, short imm);
+    void Trace(string message);
     byte ReadByte(ushort address);
     ushort ReadUShort(ushort address);
     void WriteByte(ushort address, byte value);

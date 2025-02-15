@@ -222,16 +222,21 @@ public static partial class Executioner
     {
         gb.TraceCpuOp(cpuState.PC - 1, "RLC_A");
 
-        var value = cpuState.A;
-        var carryOut = (value & 0x80) != 0;
+        var oldValue = cpuState.A;
+        var carryOut = (oldValue & 0x80) != 0;
 
-        cpuState.A = (byte)((value << 1) | (carryOut ? 0x01 : 0x00));
+        // Rotate left
+        var result = (byte)((oldValue << 1) | (carryOut ? 1 : 0));
+        cpuState.A = result;
 
-        cpuState.F = carryOut ? Flags.Carry : 0;
+        // Update flags
+        Flags flags = 0;
+        if (result == 0)
+            flags |= Flags.Zero;
+        if (carryOut)
+            flags |= Flags.Carry;
 
-        if (cpuState.A == 0)
-            cpuState.F |= Flags.Zero;
-
+        cpuState.F = flags;
         return 8;
     }
 

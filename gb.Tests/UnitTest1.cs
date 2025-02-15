@@ -555,7 +555,7 @@ public class UnitTest1
     [InlineData(0x80, Flags.Carry, 0x01)]
     [InlineData(0xFF, Flags.Carry, 0xFF)]
     [InlineData(0x01, (Flags)0, 0x02)]
-    [InlineData(0x00, (Flags)0, 0x00)]
+    [InlineData(0x00, Flags.Zero, 0x00)]
     public void RLC_A(byte initialA, Flags expectedFlags, byte expectedA)
     {
         var cpu = new CpuState
@@ -756,6 +756,11 @@ public class UnitTest1
 
         public void TraceCpuOp(int cpuStatePc, string op, short imm)
         {
+        }
+
+        public void Trace(string message)
+        {
+            throw new NotImplementedException();
         }
 
         public byte ReadByte(ushort address)

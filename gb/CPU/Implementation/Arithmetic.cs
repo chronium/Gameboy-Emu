@@ -2500,8 +2500,23 @@ public static partial class Executioner
 
         cpuState.PC++;
 
+        var carry = (cpuState.F & Flags.Carry) != 0 ? 1 : 0;
+        var result = cpuState.A - n8 - carry;
 
-        throw new NotImplementedException("SBC_A_n8");
+        cpuState.F = Flags.Negative;
+
+        if ((result & 0xFF) == 0)
+            cpuState.F |= Flags.Zero;
+
+        if ((cpuState.A & 0x0F) - (n8 & 0x0F) - carry < 0)
+            cpuState.F |= Flags.HalfCarry;
+
+        if (result < 0)
+            cpuState.F |= Flags.Carry;
+
+        cpuState.A = (byte)result;
+
+        return 8;
     }
 
     /// <summary>

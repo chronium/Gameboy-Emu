@@ -13,6 +13,11 @@ public class GameBoy : IGameBoy
 
     public readonly CpuState CpuState = new();
 
+    private bool _readDirectionKeys;
+
+// Typically stored in your MMU or Timer class
+    private ushort internalDivCounter; // 16-bit internal counter
+
     public EmulatorRunningMode RunningMode = EmulatorRunningMode.Running;
 
     public Memory Memory { get; } = new();
@@ -58,11 +63,33 @@ public class GameBoy : IGameBoy
 
     public ushort OamDmaSource { get; set; }
 
+    public InputManager InputManager { get; } = new();
+
+    /// <summary>
+    ///     Gets or sets the DIV register (FF04).
+    ///     Reading returns the upper 8 bits of internalDivCounter.
+    ///     Writing resets the counter to 0 (and thus DIV = 0).
+    /// </summary>
+    public byte DIV
+    {
+        get =>
+            // The high byte of the 16-bit counter is the DIV register
+            (byte)(internalDivCounter >> 8);
+        set =>
+            // Writing any value to FF04 resets the entire 16-bit counter to 0
+            internalDivCounter = 0;
+    }
+
     public GameBoyCartridgeHeader? CartridgeHeader { get; private set; }
+
+    public void Trace(string message)
+    {
+        // Console.WriteLine(message);
+    }
 
     public void TraceCpuOp(int address, string op)
     {
-        // Console.WriteLine("{0:X4}: {1}", address, op);
+        // Console.WriteLine("${0:X4}: {1}", address, op);
     }
 
     public void TraceCpuOp(int cpuStatePc, string op, sbyte imm)
@@ -120,6 +147,9 @@ public class GameBoy : IGameBoy
             case <= 0x7fff:
                 throw new NotImplementedException(
                     $"Write to address {address:X4} not implemented");
+            case >= 0xE000 and <= 0xFDFF:
+                Memory.WriteWRam((ushort)(address - 0x2000), value);
+                break;
             case <= 0x9fff:
                 // Console.WriteLine($"PPU VRAM write {value:X4} to {address:X4}");
                 PPU.VRAM[address - 0x8000] = value;
@@ -168,14 +198,23 @@ public class GameBoy : IGameBoy
 
     public void Halt()
     {
-        Console.WriteLine("Halted");
+        Trace("Halted");
         RunningMode = EmulatorRunningMode.Halted;
     }
 
     public void Resume()
     {
-        Console.WriteLine("Resumed");
+        Trace("Resumed");
         RunningMode = EmulatorRunningMode.Running;
+    }
+
+    /// <summary>
+    ///     Called once per CPU cycle to update the divider counter.
+    /// </summary>
+    public void UpdateDivider(int cyclesExecuted)
+    {
+        // Add the number of CPU cycles executed
+        internalDivCounter += (ushort)cyclesExecuted;
     }
 
     public void LoadBootRom(ReadOnlySpan<byte> bootRom)
@@ -214,14 +253,24 @@ public class GameBoy : IGameBoy
 
     public int Step()
     {
+        var cycles = RunningMode == EmulatorRunningMode.Running ? Executioner.Execute(CpuState, this) : 4;
+        UpdateDivider(cycles);
+
+        if (RunningMode == EmulatorRunningMode.OamDma)
+        {
+            RunningMode = EmulatorRunningMode.Running;
+            cycles += 4 * 160;
+
+            for (var i = 0; i < 160; i++) PPU.OAM[i] = ReadByte((ushort)(OamDmaSource + i));
+        }
+
         if (CpuState.IME && VBlankInterruptRequested)
         {
-            CpuState.IME = false;
             VBlankInterruptRequested = false;
 
             if (VBlankInterruptEnabled)
             {
-                Console.WriteLine("vblank?");
+                CpuState.IME = false;
                 Push(CpuState.PC);
                 CpuState.PC = 0x40;
             }
@@ -233,16 +282,6 @@ public class GameBoy : IGameBoy
             VBlankInterruptRequested = false;
         }
 
-        var cycles = RunningMode == EmulatorRunningMode.Running ? Executioner.Execute(CpuState, this) : 4;
-
-        if (RunningMode == EmulatorRunningMode.OamDma)
-        {
-            RunningMode = EmulatorRunningMode.Running;
-            cycles += 4 * 160;
-
-            for (var i = 0; i < 160; i++) PPU.OAM[i] = ReadByte((ushort)(OamDmaSource + i));
-        }
-
         for (var i = 0; i < cycles; i++) PPU.Step(this);
 
         return cycles;
@@ -252,12 +291,17 @@ public class GameBoy : IGameBoy
     {
         switch (address)
         {
+            case 0xff00:
+                if ((value & 0b0001_0000) == 0)
+                    _readDirectionKeys = true;
+                else if ((value & 0b0010_0000) == 0) _readDirectionKeys = false;
+                break;
             case 0xff01:
                 OnSerialTransfer?.Invoke(value);
-                Console.WriteLine($"Serial transfer: {value:X4} {value:X2} '{(char)value}'");
+                Trace($"Serial transfer: {value:X4} {value:X2} '{(char)value}'");
                 break;
             case <= 0xFF3F:
-                Console.WriteLine($"Write {value:X4} to APU address {address:X4}");
+                Trace($"Write {value:X4} to APU address {address:X4}");
                 break;
             case <= 0xFF70:
                 PPU.WriteMMIO(this, address, value);
@@ -273,9 +317,13 @@ public class GameBoy : IGameBoy
         switch (address)
         {
             case 0xFF00:
-                return 0xFF;
+                if (_readDirectionKeys) return InputManager.ReadDirections();
+
+                return InputManager.ReadButtons();
+            case 0xff04:
+                return DIV;
             case >= 0xFF10 and <= 0xFF3F:
-                Console.WriteLine($"Read from APU address {address:X4}");
+                Trace($"Read from APU address {address:X4}");
                 return 0;
             case <= 0xFF70:
                 return PPU.ReadMMIO(address);
@@ -312,8 +360,8 @@ public class Memory
 
     public void WriteRom(ReadOnlySpan<byte> rom)
     {
-        rom.Slice(0, 0x4000).CopyTo(ROM00);
-        rom.Slice(0x4000).CopyTo(ROM01);
+        rom[..0x4000].CopyTo(ROM00);
+        rom[0x4000..].CopyTo(ROM01);
 
         if (rom.Length > 0x8000) Console.WriteLine("ROM is too large, only the first 32KB will be loaded");
     }
@@ -326,8 +374,6 @@ public class Memory
             >= 0x4000 => ROM01[address - 0x4000],
             _ => ROM00[address],
         };
-
-        if (address >= 0x104 && address <= 0x133) Console.WriteLine($"Read logo data from {address:X4} value {b:X2}");
 
         return b;
     }

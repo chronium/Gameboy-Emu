@@ -29,6 +29,8 @@ public partial class Application
     private SdlTexture _bg1Texture;
     private bool _disableAllBreakpoints;
 
+    private bool _drawDebugger;
+
     private string _nextBreakpoint = "";
     private Action<Application>? _onQuit;
     private IntPtr _renderer;
@@ -73,7 +75,7 @@ public partial class Application
 
         InitImGui();
 
-        LoadBootRom();
+        // LoadBootRom();
 
         if (!string.IsNullOrEmpty(romPath)) LoadRom(romPath);
 
@@ -100,6 +102,70 @@ public partial class Application
 
                 if (@event.type == (uint)SDL_EventType.SDL_EVENT_QUIT)
                     _running = false;
+
+                if (@event.type == (uint)SDL_EventType.SDL_EVENT_KEY_DOWN)
+                    switch (@event.key.key)
+                    {
+                        case (int)SDL_Keycode.SDLK_UP:
+                            _gameBoy.InputManager.Up = true;
+                            break;
+                        case (int)SDL_Keycode.SDLK_DOWN:
+                            _gameBoy.InputManager.Down = true;
+                            break;
+                        case (int)SDL_Keycode.SDLK_LEFT:
+                            _gameBoy.InputManager.Left = true;
+                            break;
+                        case (int)SDL_Keycode.SDLK_RIGHT:
+                            _gameBoy.InputManager.Right = true;
+                            break;
+
+                        case (int)SDL_Keycode.SDLK_Z:
+                            _gameBoy.InputManager.A = true;
+                            break;
+                        case (int)SDL_Keycode.SDLK_X:
+                            _gameBoy.InputManager.B = true;
+                            break;
+
+                        case (int)SDL_Keycode.SDLK_RETURN:
+                            _gameBoy.InputManager.Start = true;
+                            break;
+
+                        case (int)SDL_Keycode.SDLK_RSHIFT:
+                            _gameBoy.InputManager.Select = true;
+                            break;
+                    }
+
+                if (@event.type == (uint)SDL_EventType.SDL_EVENT_KEY_UP)
+                    switch (@event.key.key)
+                    {
+                        case (int)SDL_Keycode.SDLK_UP:
+                            _gameBoy.InputManager.Up = false;
+                            break;
+                        case (int)SDL_Keycode.SDLK_DOWN:
+                            _gameBoy.InputManager.Down = false;
+                            break;
+                        case (int)SDL_Keycode.SDLK_LEFT:
+                            _gameBoy.InputManager.Left = false;
+                            break;
+                        case (int)SDL_Keycode.SDLK_RIGHT:
+                            _gameBoy.InputManager.Right = false;
+                            break;
+
+                        case (int)SDL_Keycode.SDLK_Z:
+                            _gameBoy.InputManager.A = false;
+                            break;
+                        case (int)SDL_Keycode.SDLK_X:
+                            _gameBoy.InputManager.B = false;
+                            break;
+
+                        case (int)SDL_Keycode.SDLK_RETURN:
+                            _gameBoy.InputManager.Start = false;
+                            break;
+
+                        case (int)SDL_Keycode.SDLK_RSHIFT:
+                            _gameBoy.InputManager.Select = false;
+                            break;
+                    }
             }
 
             Update();
@@ -142,11 +208,14 @@ public partial class Application
         if (_showMenu)
             GlobalMenu(_data);
 
-        Debugger();
-        MemoryWindow();
-        DrawSerialOutput();
+        if (_drawDebugger)
+        {
+            Debugger();
+            MemoryWindow();
+            DrawSerialOutput();
 
-        _gameBoy.CpuState.ImGuiRegistersDisplay();
+            _gameBoy.CpuState.ImGuiRegistersDisplay();
+        }
 
         if (_step && _runningMode == EmulatorRunningMode.Stopped)
         {
@@ -249,7 +318,7 @@ public partial class Application
         var rom = File.ReadAllBytes(romPath);
 
         _gameBoy.LoadRom(rom);
-        // _gameBoy.ResetNoBootRom(_gameBoy.CartridgeHeader.Value);
+        _gameBoy.ResetNoBootRom(_gameBoy.CartridgeHeader.Value);
         SDL_SetWindowTitle(_window, $"{_gameBoy.CartridgeHeader?.GetTitle() ?? "GB Emu"}");
     }
 

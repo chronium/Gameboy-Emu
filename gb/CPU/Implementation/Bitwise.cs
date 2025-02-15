@@ -868,6 +868,8 @@ public static partial class Executioner
         var n8 = gb.ReadByte(cpuState.PC);
         gb.TraceCpuOp(cpuState.PC - 1, "OR_A_n8", n8);
 
+        cpuState.PC++;
+
         cpuState.F &= ~Flags.Zero;
         cpuState.F &= ~Flags.Negative;
         cpuState.F &= ~Flags.HalfCarry;

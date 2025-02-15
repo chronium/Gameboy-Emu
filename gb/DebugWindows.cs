@@ -54,6 +54,8 @@ public partial class Application
                 ImGui.Checkbox("Running", ref running);
                 _runningMode = running ? EmulatorRunningMode.Running : EmulatorRunningMode.Stopped;
 
+                ImGui.Checkbox("Draw Debugger", ref _drawDebugger);
+
                 if (ImGui.MenuItem("Reset"))
                 {
                     // TODO: Reset
@@ -212,7 +214,7 @@ public partial class Application
                 var bit1 = (byte)(lsb >> (7 - x)) & 1;
                 var bit2 = (byte)(msb >> (7 - x)) & 1;
 
-                pixels[(yy + y) * width + xx + x] = gb.PPU.GetColor((byte)(bit1 | (bit2 << 1)));
+                pixels[(yy + y) * width + xx + x] = gb.PPU.GetColor(gb.PPU.Palette, (byte)(bit1 | (bit2 << 1)));
             }
         }
     }
